@@ -21,6 +21,8 @@ git submodule update --init --recursive
 
 Create and activate a virtual environment:
 
+NOTE: Use Python 3.9! Python 3.12.6 is known not to work!
+
 ```bash
 python3 -m venv venv
 source venv/bin/activate
@@ -32,3 +34,14 @@ Then install dependencies:
 pip install -r kitana-e2e/requirements.txt
 `pip install -r requirements.txt
 ```
+
+NOTE: To make IntelliSense work for the submodule you can manually add the submodule path in VSCode
+
+1. Open `.vscode/settings.json`
+2. Add the following:
+
+```json
+{
+  "python.envFile": "${workspaceFolder}/.env",
+  "python.analysis.extraPaths": ["kitana-e2e"]
+}
