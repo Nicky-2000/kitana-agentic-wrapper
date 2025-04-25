@@ -45,3 +45,12 @@ NOTE: To make IntelliSense work for the submodule you can manually add the submo
   "python.envFile": "${workspaceFolder}/.env",
   "python.analysis.extraPaths": ["kitana-e2e"]
 }
+```
+
+### Running the code: 
+
+```bash
+python3 run_kitana_agentic_wrapper.py
+
+```
+
