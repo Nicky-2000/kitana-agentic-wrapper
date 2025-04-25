@@ -25,5 +25,7 @@ source venv/bin/activate
 
 Then install dependencies:
 
-`pip install -r kitana-e2e/requirements.txt`  
-`pip install -r requirements.txt`
+```bash
+pip install -r kitana-e2e/requirements.txt
+`pip install -r requirements.txt
+```
