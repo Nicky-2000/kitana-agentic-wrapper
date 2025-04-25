@@ -1,3 +1,4 @@
 [submodule "kitana-e2e"]
 	path = kitana-e2e
 	url = git@github.com:cudbg/Kitana-e2e.git
+	branch = TURL_setup
