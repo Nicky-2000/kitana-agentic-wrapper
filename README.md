@@ -7,12 +7,15 @@ An agentic data search tool that leverages the output of Kitana. This wrapper ad
 ### Step 1: Clone the Repository (with Submodules)
 
 First run:
-
-`git clone --recurse-submodules git@github.com:<your-username>/kitana-agentic-wrapper.git && cd kitana-agentic-wrapper`
+```bash
+git clone --recurse-submodules git@github.com:<your-username>/kitana-agentic-wrapper.git && cd kitana-agentic-wrapper
+```
 
 If you've already cloned the repo, initialize submodules with:
 
-`git submodule update --init --recursive`
+```bash
+git submodule update --init --recursive
+```
 
 ### Step 2: Create a Virtual Environment and Install Dependencies
 
