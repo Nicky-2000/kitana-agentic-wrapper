@@ -1,9 +1,10 @@
 from src.filterTables import FilterByEmbeddings
 from src.datalake import Datalake
+from src.kitana_history.query_history import KitanaHistory
 from src.testcase_manager import Testcase
 
 
-def embedding_datalake_search(kitana_results: list[dict], datalake: Datalake, testcase: Testcase, top_k:int = 5):
+def embedding_datalake_search(kitana_history: KitanaHistory, datalake: Datalake, testcase: Testcase, top_k:int = 5):
     """
     Reads in the tables in the data lake
     For a given query table and query column, return to

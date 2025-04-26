@@ -48,12 +48,10 @@ def run_kitana(
     # Run exps
     company = ScaledExperiment(config)
     company_experiment_result = company.run()
-    # Unwrap the results into a KitanaResults object
-    time_taken = company_experiment_result['time_taken']
-    num_iterations = company_experiment_result['num_iterations']
-
-    augmented_results = []
-    return company_experiment_result
+    
+    kitana_results = KitanaResults.from_dict(company_experiment_result)
+    
+    return kitana_results
 
 
 def copy_files_to_folder(src_folder: str, dest_folder: str, files: list):
@@ -115,20 +113,21 @@ if __name__ == "__main__":
     ]
     
     for test_case in test_cases:
+        
         test_case.prepare_augmented_folder()
         datalake = DataLake(datalake_folder="data/datalake")
 
-        results_history = []
-        files_added = []
+        kitana_history = KitanaHistory()
 
         # Step 1: Run Kitana (Initial Run with original data)
-        results = run_kitana(
+        kitana_results = run_kitana(
             seller_data_folder_path=test_case.seller_augmented_folder_path,
             buyer_csv_path=test_case.buyer_csv_path,
             join_keys=test_case.join_keys,
             target_feature=test_case.target_feature,
         )
-        results_history.append(results)
+        
+        kitana_history.kitana_results.append(kitana_results)
 
         try:
             for i in range(3):
@@ -136,26 +135,28 @@ if __name__ == "__main__":
                 # This is where our methods come into play
 
                 # Examples:
-                files_to_use = embedding_datalake_search(results_history, datalake, test_case, top_k=5)
+                files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=5)
                 # or
                 # files_to_use = MCTS_datalake_search(results_history, datalake)
 
                 print(f"Adding Files in datalake: {files_to_use}")
-                files_added.append(files_to_use)
+                kitana_history.files_cleaned.append(files_to_use)
+
 
                 # Step 3: Copy the files to a folder where kitana can access it
                 datalake.copy_files(
                     files=files_to_use,
                     dest_folder=test_case.seller_augmented_folder_path,
                 )
+                
                 # Step 4: Run the experiment again with the new data (Repeat)
-                new_results = run_kitana(
+                new_kitana_results = run_kitana(
                     seller_data_folder_path=test_case.seller_augmented_folder_path,
                     buyer_csv_path=test_case.buyer_csv_path,
                     join_keys=test_case.join_keys,
                     target_feature=test_case.target_feature,
                 )
-                results_history.append(new_results)
+                kitana_history.kitana_results.append(new_kitana_results)
 
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
