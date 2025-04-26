@@ -7,7 +7,6 @@ import openai
 from google import genai
 from google.genai import types
 from botocore.exceptions import ClientError
-from chromadb import Documents, EmbeddingFunction, Embeddings
 from ollama import chat
 from ollama import ChatResponse
 from token_observer import llm_token_observer

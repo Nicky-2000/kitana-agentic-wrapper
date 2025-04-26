@@ -1,10 +1,7 @@
-
-from typing import Dict, List
-from language_model_interface import LanguageModelInterface
-from typed_dicts import LanguageModelConfig, VectorDBConfig
+from src.language_model_interface import LanguageModelInterface
+from src.typed_dicts import LanguageModelConfig, VectorDBConfig
 #from google.genai.types import ContentEmbedding
 import chromadb
-from chromadb.config import Settings
 
 class VectorDB:
     def __init__(self, collection_name: str, config:VectorDBConfig, lm_config:LanguageModelConfig):
@@ -28,7 +25,7 @@ class VectorDB:
             ids=[id]
         )
     
-    def get_n_closest(self, text: str, n: int) -> List[str]:
+    def get_n_closest(self, text: str, n: int) -> list[str]:
         """
         Get the n closest documents to the given text.
         :param text: Text to compare against.

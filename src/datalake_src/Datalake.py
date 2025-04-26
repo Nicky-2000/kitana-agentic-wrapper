@@ -8,7 +8,12 @@ class DataLake:
         self.datalake_folder = Path(datalake_folder)
         if not self.datalake_folder.exists():
             raise ValueError(f"Datalake folder {datalake_folder} does not exist.")
+        self.refresh_files()
 
+    def refresh_files(self):
+        """Refresh the internal cache of datalake files."""
+        self.files = [f.name for f in self.datalake_folder.glob("*.csv")]
+    
     def list_files(self) -> List[str]:
         return list(self.files)
 

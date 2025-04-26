@@ -1,17 +1,14 @@
-from abc import abstractmethod
 import os
-import pickle
 import time
-from typing import Dict, List
-from typed_dicts import LanguageModelConfig, VectorDBConfig
-from vectorDB import VectorDB
-from utils import get_pdataframe_from_csv
+from src.typed_dicts import LanguageModelConfig, VectorDBConfig
+from src.vectorDB import VectorDB
+from src.utils import get_pdataframe_from_csv
 import hashlib
 from tqdm import tqdm
 
 
 class EmbeddingDB:
-    def __init__(self, tables: List[str]):
+    def __init__(self, tables: list[str]):
         self.tables = tables
 
         db_name:str = (os.getenv("API_TYPE") if os.getenv("API_TYPE")!=None else "undefined")  + "_similarity"#type:ignore

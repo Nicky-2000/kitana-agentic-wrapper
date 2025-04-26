@@ -1,14 +1,18 @@
-from filterTables import FilterByEmbeddings
-from utils import read_file_names
+from src.filterTables import FilterByEmbeddings
+from src.datalake_src import Datalake
+from src.testcase_manager import Testcase
+from src.utils import read_file_names
 
 
-def embedding_datalake_search(kitana_results: list[dict], datalake_path: str, query_table:str, query_column:str, top_k:int = 5):
+def embedding_datalake_search(kitana_results: list[dict], datalake: Datalake, testcase: Testcase, top_k:int = 5):
     """
     Reads in the tables in the data lake
     For a given query table and query column, return to
     """
     
     filter_table = FilterByEmbeddings([])
+    datalake_files = datalake.list_files()
+    print(f"Files in datalake: {datalake_files}")
     filter_table.set_tables(read_file_names(datalake_path).copy())
 
     top_selections = filter_table.filterByQuery(query_column, query_table, top_k)

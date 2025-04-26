@@ -109,6 +109,7 @@ if __name__ == "__main__":
             [["Country"]],
         ),
     ]
+    
     for test_case in test_cases:
         test_case.prepare_augmented_folder()
         datalake = DataLake(datalake_folder="data/datalake")
@@ -118,7 +119,7 @@ if __name__ == "__main__":
 
         # Step 1: Run Kitana (Initial Run with original data)
         results = run_kitana(
-            seller_data_folder_path=test_case.seller_data_folder_path,
+            seller_data_folder_path=test_case.seller_augmented_folder_path,
             buyer_csv_path=test_case.buyer_csv_path,
             join_keys=test_case.join_keys,
             target_feature=test_case.target_feature,
@@ -131,9 +132,9 @@ if __name__ == "__main__":
                 # This is where our methods come into play
 
                 # Examples:
-                files_to_use = embedding_datalake_search(results_history, datalake)
+                files_to_use = embedding_datalake_search(results_history, datalake, test_case, top_k=5)
                 # or
-                files_to_use = MCTS_datalake_search(results_history, datalake)
+                # files_to_use = MCTS_datalake_search(results_history, datalake)
 
                 print(f"Adding Files in datalake: {files_to_use}")
                 files_added.append(files_to_use)
@@ -141,11 +142,11 @@ if __name__ == "__main__":
                 # Step 3: Copy the files to a folder where kitana can access it
                 datalake.copy_files(
                     files=files_to_use,
-                    dest_folder=test_case.seller_data_folder_path,
+                    dest_folder=test_case.seller_augmented_folder_path,
                 )
                 # Step 4: Run the experiment again with the new data (Repeat)
                 new_results = run_kitana(
-                    seller_data_folder_path=test_case.seller_data_folder_path,
+                    seller_data_folder_path=test_case.seller_augmented_folder_path,
                     buyer_csv_path=test_case.buyer_csv_path,
                     join_keys=test_case.join_keys,
                     target_feature=test_case.target_feature,
@@ -153,5 +154,5 @@ if __name__ == "__main__":
                 results_history.append(new_results)
 
         finally:
-            clean_data_folder(test_case.seller_data_folder_path)
-            print(f"Cleaned up augmented folder: {test_case.seller_data_folder_path}")
+            clean_data_folder(test_case.seller_augmented_folder_path)
+            print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")

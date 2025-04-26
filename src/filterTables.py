@@ -1,16 +1,9 @@
-from abc import abstractmethod
-import os
-from typing import Dict, List
-from embedding_db import EmbeddingDB
-from typed_dicts import LanguageModelConfig, VectorDBConfig
-from vectorDB import VectorDB
-from utils import get_pdataframe_from_csv
-import hashlib
-from enrich_table import enrich_and_filter_table_list
+from src.embedding_db import EmbeddingDB
+from src.enrich_table import enrich_and_filter_table_list
 
 
 class FilterTables:
-    def __init__(self, tables:List[str]):
+    def __init__(self, tables:list[str]):
         self.tables = tables
     
     def set_tables(self, tables):
@@ -23,7 +16,7 @@ class FilterTables:
         self.tables.append(table)
 
     #@abstractmethod
-    def filterByQuery(self, query, target_table, data_folder, n:int) -> List[str]:
+    def filterByQuery(self, query, target_table, data_folder, n:int) -> list[str]:
         if target_table not in self.tables:
             self.add_table(target_table)
 
@@ -33,7 +26,7 @@ class FilterTables:
 
 
 class FilterByEmbeddings(FilterTables):
-    def __init__(self, tables:List[str]):
+    def __init__(self, tables:list[str]):
         super().__init__(tables)
         self.set_tables(tables)
     
@@ -51,7 +44,7 @@ class FilterByEmbeddings(FilterTables):
         super().add_table(table)
         self.db.add_to_db(table)
 
-    def filterByQuery(self, query:str, target_table:str, n:int) -> List[str]:
+    def filterByQuery(self, query:str, target_table:str, n:int) -> list[str]:
         results = self.db.get_vector_db().get_n_closest(query + target_table, n)
         
         return results
