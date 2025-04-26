@@ -2,11 +2,12 @@ import os
 import logging
 from typing import Dict, Tuple
 import pandas as pd
+from typing import Optional
 
 logger = logging.getLogger(__name__)
 
 
-def get_pdataframe_from_csv(dataset_file: str, demo_folder="housing_data") -> pd.DataFrame|None:
+def get_pdataframe_from_csv(dataset_file: str, demo_folder="data/datalake") -> Optional[pd.DataFrame]:
     """
     Reads a CSV file and returns a pandas DataFrame.
     
@@ -29,7 +30,7 @@ def get_pdataframe_from_csv(dataset_file: str, demo_folder="housing_data") -> pd
     return df
 
 
-def check_if_valid_json(string_input:str) -> Tuple[bool, Dict|None]:
+def check_if_valid_json(string_input:str) -> Tuple[bool, Optional[Dict]]:
     is_valid = False
     json_obj = None
     try:
@@ -57,3 +58,11 @@ def gemini_json_cleaner(output):
             end_index = i + 1
             break
     return output[start_index:end_index]
+
+def read_file_names(augmented_data_dir):
+    try:
+        files = os.listdir(augmented_data_dir)
+        return files
+    except Exception as e:
+        print(f"Error reading directory {augmented_data_dir}: {e}")
+        return []
