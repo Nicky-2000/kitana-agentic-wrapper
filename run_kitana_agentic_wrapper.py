@@ -3,6 +3,7 @@ import sys
 from pathlib import Path
 import os
 
+from src.datalake_src.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
 
@@ -92,6 +93,13 @@ def init_augmented_seller_folder(test_case: str):
 
 
 if __name__ == "__main__":
+    # Load in the datalake files
+    load_in_datalake(
+        g_drive_url="https://drive.google.com/file/d/1I9nEDN0_mlxz2NoioHhqRNpOMViJFjRc/view?usp=sharing",
+        extract_folder="data",
+        zip_filename="datalake.zip",
+        delete_zip_after_extract=True,
+    )
     # High level flow of what we can do here:
     # In a loop:
     # 1. Run the experiment and get the results (augplan and accuracy)
@@ -109,7 +117,7 @@ if __name__ == "__main__":
     datalake_path = "data/datalake"
     results_history = []
     files_added = []
-    
+
     # Step 1: Run Kitana (Initial Run with original data)
     results = run_kitana(
         seller_data_folder_path=seller_data_folder_path,
@@ -128,16 +136,16 @@ if __name__ == "__main__":
             files_to_use = embedding_datalake_search(results_history, datalake_path)
             # or
             files_to_use = MCTS_datalake_search(results_history, datalake_path)
-            
+
             print(f"Adding Files in datalake: {files_to_use}")
             files_added.append(files_to_use)
-            
+
             # Step 3: Copy the files to a folder where kitana can access it
             # TODO: Can decide to modify / make this more genric
             copy_files_to_folder(
-                src_folder=datalake_path, # Path where we found new data to use
-                dest_folder=seller_data_folder_path, # Path we use to run the experiement
-                files=files_to_use, # The files we found!
+                src_folder=datalake_path,  # Path where we found new data to use
+                dest_folder=seller_data_folder_path,  # Path we use to run the experiement
+                files=files_to_use,  # The files we found!
             )
             # Step 4: Run the experiment again with the new data (Repeat)
             new_results = run_kitana(
