@@ -9,7 +9,7 @@ from google.genai import types
 from botocore.exceptions import ClientError
 from ollama import chat
 from ollama import ChatResponse
-from token_observer import llm_token_observer
+from src.token_observer import llm_token_observer
 import os
 
 logger = logging.getLogger(__name__)
