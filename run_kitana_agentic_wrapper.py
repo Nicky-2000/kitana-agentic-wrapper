@@ -7,6 +7,7 @@ from src.datalake_src.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake_src.Datalake import DataLake
+from src.testcase_manager.Testcase import TestCase
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
@@ -111,51 +112,66 @@ if __name__ == "__main__":
 
     # Pseudo code:
 
-    test_case = "test_case_1"
-    buyer_csv_path = f"data/{test_case}/buyer/master.csv"
-    seller_data_folder_path, buyer_csv_path = init_augmented_seller_folder(test_case)
+    test_cases = [
+        TestCase.from_name(
+            "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
+        ),
+        TestCase.from_name(
+            "test_case_2",
+            "Life Expectancy Data.csv",
+            "Life expectancy",
+            [["Country"], ["year"]],
+        ),
+        TestCase.from_name(
+            "test_case_3",
+            "Cost_of_Living_Index_by_Country_2024.csv",
+            "Groceries Index",
+            [["Country"]],
+        ),
+    ]
+    for test_case in test_cases:
+        test_case.prepare_augmented_folder()
+        datalake = DataLake(datalake_folder="data/datalake")
 
-    datalake = DataLake(datalake_folder="data/datalake")
-    
-    results_history = []
-    files_added = []
+        results_history = []
+        files_added = []
 
-    # Step 1: Run Kitana (Initial Run with original data)
-    results = run_kitana(
-        seller_data_folder_path=seller_data_folder_path,
-        buyer_csv_path=buyer_csv_path,
-        join_keys=[["Country"], ["year"]],
-        target_feature="suicides_no",
-    )
-    results_history.append(results)
+        # Step 1: Run Kitana (Initial Run with original data)
+        results = run_kitana(
+            seller_data_folder_path=test_case.seller_data_folder_path,
+            buyer_csv_path=test_case.buyer_csv_path,
+            join_keys=test_case.join_keys,
+            target_feature=test_case.target_feature,
+        )
+        results_history.append(results)
 
-    try:
-        for i in range(1):
-            # Step 2: Use results to search the "datalake"
-            # This is where our methods come into play
+        try:
+            for i in range(3):
+                # Step 2: Use results to search the "datalake"
+                # This is where our methods come into play
 
-            # Examples:
-            files_to_use = embedding_datalake_search(results_history, datalake)
-            # or
-            files_to_use = MCTS_datalake_search(results_history, datalake)
+                # Examples:
+                files_to_use = embedding_datalake_search(results_history, datalake)
+                # or
+                files_to_use = MCTS_datalake_search(results_history, datalake)
 
-            print(f"Adding Files in datalake: {files_to_use}")
-            files_added.append(files_to_use)
+                print(f"Adding Files in datalake: {files_to_use}")
+                files_added.append(files_to_use)
 
-            # Step 3: Copy the files to a folder where kitana can access it
-            datalake.copy_files(
-                files=files_to_use,
-                dest_folder=seller_data_folder_path,
-            )
-            # Step 4: Run the experiment again with the new data (Repeat)
-            new_results = run_kitana(
-                seller_data_folder_path=seller_data_folder_path,
-                buyer_csv_path=buyer_csv_path,
-                join_keys=[["Country"], ["year"]],
-                target_feature="suicides_no",
-            )
-            results_history.append(new_results)
+                # Step 3: Copy the files to a folder where kitana can access it
+                datalake.copy_files(
+                    files=files_to_use,
+                    dest_folder=test_case.seller_data_folder_path,
+                )
+                # Step 4: Run the experiment again with the new data (Repeat)
+                new_results = run_kitana(
+                    seller_data_folder_path=test_case.seller_data_folder_path,
+                    buyer_csv_path=test_case.buyer_csv_path,
+                    join_keys=test_case.join_keys,
+                    target_feature=test_case.target_feature,
+                )
+                results_history.append(new_results)
 
-    finally:
-        clean_data_folder(seller_data_folder_path)
-        print(f"Cleaned up augmented folder: {seller_data_folder_path}")
+        finally:
+            clean_data_folder(test_case.seller_data_folder_path)
+            print(f"Cleaned up augmented folder: {test_case.seller_data_folder_path}")
