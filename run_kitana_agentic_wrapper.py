@@ -182,3 +182,9 @@ if __name__ == "__main__":
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
             print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")
+            
+            # ✨ Save history at the end!
+            history_save_path = f"kitana_logs/{test_case.name}_history.json"
+            os.makedirs("kitana_logs", exist_ok=True)
+            kitana_history.save(history_save_path)
+            print(f"[INFO] Saved history to {history_save_path}")

@@ -39,6 +39,10 @@ class FilterByEmbeddings(FilterTables):
     def remove_table(self, table):
         super().remove_table(table)
         self.db.remove_from_db(table)
+    
+    def remove_batch_of_tables(self, tables:list[str]):
+        for table in tables:
+            self.remove_table(table)
 
     def add_table(self, table):
         super().add_table(table)

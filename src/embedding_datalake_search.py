@@ -1,3 +1,4 @@
+from itertools import chain
 from src.filterTables import FilterByEmbeddings
 from src.datalake import Datalake
 from src.kitana_history.query_history import KitanaHistory
@@ -12,8 +13,15 @@ def embedding_datalake_search(kitana_history: KitanaHistory, datalake: Datalake,
     
     filter_table = FilterByEmbeddings([])
     datalake_files = datalake.list_files()
-    print(f"Files in datalake: {datalake_files}")
+
+        
+    # print(f"Files in datalake: {datalake_files}")
     filter_table.set_tables(datalake_files)
+    
+    if len(kitana_history.files_cleaned) > 0:
+        # Remove files we have already cleaned from the embeddingDB 
+        all_cleaned_files = list(chain.from_iterable(kitana_history.files_cleaned))
+        filter_table.remove_batch_of_tables(all_cleaned_files)
 
     top_selections = filter_table.filterByQuery(testcase.target_feature, testcase.buyer_csv_path, top_k)
 
