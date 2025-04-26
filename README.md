@@ -8,7 +8,7 @@ An agentic data search tool that leverages the output of Kitana. This wrapper ad
 
 First run:
 ```bash
-git clone --recurse-submodules git@github.com:<your-username>/kitana-agentic-wrapper.git && cd kitana-agentic-wrapper
+git clone --recurse-submodules git@github.com:Nicky-2000/kitana-agentic-wrapper.git && cd kitana-agentic-wrapper
 ```
 
 If you've already cloned the repo, initialize submodules with:
