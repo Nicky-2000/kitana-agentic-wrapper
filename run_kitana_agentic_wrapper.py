@@ -5,6 +5,7 @@ import os
 from src.kitana_history.query_history import Augplan, KitanaResults, KitanaHistory
 from src.datalake.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
+from src.oracle_datalake_search import oracle_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
@@ -46,7 +47,7 @@ def run_kitana(
             one_target_feature=False,
             need_to_clean_data=True,
         ),
-        experiment=ExperimentConfig(plot_results=False, results_dir="results/"),
+        experiment=ExperimentConfig(plot_results=True, results_dir="results/"),
         logging=LoggingConfig(level="ERROR", file="logs/original_sample_execution.log"),
     )
 
@@ -150,12 +151,12 @@ if __name__ == "__main__":
         kitana_history.kitana_results.append(kitana_results)
 
         try:
-            for i in range(3):
+            for i in range(1):
                 # Step 2: Use results to search the "datalake"
                 # This is where our methods come into play
 
                 # Examples:
-                files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=5)
+                files_to_use = oracle_datalake_search(kitana_history, datalake, test_case, top_k=5)
                 # or
                 # files_to_use = MCTS_datalake_search(results_history, datalake)
 
