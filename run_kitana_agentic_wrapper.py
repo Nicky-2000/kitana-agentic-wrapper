@@ -107,12 +107,12 @@ if __name__ == "__main__":
         TestCase.from_name(
             "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
         ),
-        TestCase.from_name(
-            "test_case_2",
-            "Life Expectancy Data.csv",
-            "Life expectancy",
-            [["Country"], ["year"]],
-        ),
+        # TestCase.from_name(
+        #     "test_case_2",
+        #     "Life Expectancy Data.csv",
+        #     "Life expectancy",
+        #     [["Country"], ["year"]],
+        # ),
         TestCase.from_name(
             "test_case_3",
             "Cost_of_Living_Index_by_Country_2024.csv",
@@ -163,7 +163,6 @@ if __name__ == "__main__":
                 print(f"Adding Files in datalake: {files_to_use}")
                 kitana_history.files_cleaned.append(files_to_use)
 
-
                 # Step 3: Copy the files to a folder where kitana can access it
                 datalake.copy_files(
                     files=files_to_use,
@@ -179,6 +178,7 @@ if __name__ == "__main__":
                 )
                 kitana_history.kitana_results.append(new_kitana_results)
         except Exception as e:
+            print(f"Test case {test_case.name} failed")
             print(f"An error occurred during execption: {e}. Don't Ignore!")
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
