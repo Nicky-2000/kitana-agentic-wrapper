@@ -2,11 +2,11 @@ import shutil
 import sys
 from pathlib import Path
 import os
-
-from src.datalake_src.load_datalake import load_in_datalake
+from src.kitana_history.query_history import Augplan, KitanaResults, KitanaHistory
+from src.datalake.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
-from src.datalake_src.Datalake import DataLake
+from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
@@ -48,7 +48,11 @@ def run_kitana(
     # Run exps
     company = ScaledExperiment(config)
     company_experiment_result = company.run()
-    # Return as list
+    # Unwrap the results into a KitanaResults object
+    time_taken = company_experiment_result['time_taken']
+    num_iterations = company_experiment_result['num_iterations']
+
+    augmented_results = []
     return company_experiment_result
 
 

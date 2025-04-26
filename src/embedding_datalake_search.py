@@ -1,7 +1,6 @@
 from src.filterTables import FilterByEmbeddings
-from src.datalake_src import Datalake
+from src.datalake import Datalake
 from src.testcase_manager import Testcase
-from src.utils import read_file_names
 
 
 def embedding_datalake_search(kitana_results: list[dict], datalake: Datalake, testcase: Testcase, top_k:int = 5):
@@ -13,9 +12,9 @@ def embedding_datalake_search(kitana_results: list[dict], datalake: Datalake, te
     filter_table = FilterByEmbeddings([])
     datalake_files = datalake.list_files()
     print(f"Files in datalake: {datalake_files}")
-    filter_table.set_tables(read_file_names(datalake_path).copy())
+    filter_table.set_tables(datalake_files)
 
-    top_selections = filter_table.filterByQuery(query_column, query_table, top_k)
+    top_selections = filter_table.filterByQuery(testcase.target_feature, testcase.buyer_csv_path, top_k)
 
     return top_selections
 

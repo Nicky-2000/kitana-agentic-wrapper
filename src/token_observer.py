@@ -21,7 +21,7 @@ class LLMTokenObserver:
             "google": {"prompt": 0, "completion": 0, "total": 0},
             "local": {"prompt": 0, "completion": 0, "total": 0},
             "embeddings": {"prompt": 0, "completion": 0, "total": 0}
-        }
+        } 
 
     def update_tokens(self, api_type: str, prompt_tokens: int = 0, completion_tokens: int = 0, total_tokens: int = 0):
         """Updates the token count for a specific API."""
