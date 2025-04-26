@@ -10,6 +10,7 @@ from botocore.exceptions import ClientError
 from chromadb import Documents, EmbeddingFunction, Embeddings
 from ollama import chat
 from ollama import ChatResponse
+from token_observer import llm_token_observer
 import os
 
 logger = logging.getLogger(__name__)
@@ -114,6 +115,16 @@ class LanguageModelInterface:
             'content': prompt,
           },
         ])
+        # Extracts from ollama ChatResponse dictionary/object
+        prompt_tokens = response.get('prompt_eval_count', 0) # Ollama names
+        completion_tokens = response.get('eval_count', 0)    # Ollama names
+        total_tokens = prompt_tokens + completion_tokens # Calculated
+        
+        # Passes them separately
+        llm_token_observer.update_tokens('local',
+                                         prompt_tokens=prompt_tokens,
+                                         completion_tokens=completion_tokens,
+                                         total_tokens=total_tokens)
         return response.message.content
 
 
@@ -126,6 +137,17 @@ class LanguageModelInterface:
 
         if not response:
             return {"error": "Empty response from Gemini"}
+        
+        usage = response.usage_metadata
+        prompt_tokens = getattr(usage, 'prompt_token_count', 0)
+        completion_tokens = getattr(usage, 'candidates_token_count', 0) # Google calls output 'candidates'
+        total_tokens = getattr(usage, 'total_token_count', 0)
+
+        # Passes them separately
+        llm_token_observer.update_tokens('google',
+                                 prompt_tokens=prompt_tokens,
+                                 completion_tokens=completion_tokens,
+                                 total_tokens=total_tokens)
         
         return response.text
 
@@ -144,6 +166,17 @@ class LanguageModelInterface:
 
         if not response:
             return {"error": "Empty response from OpenAI"}
+        
+        usage = response.usage
+        prompt_tokens = getattr(usage, 'prompt_tokens', 0)
+        completion_tokens = getattr(usage, 'completion_tokens', 0)
+        total_tokens = getattr(usage, 'total_tokens', 0)
+
+        # Passes them separately to the observer
+        llm_token_observer.update_tokens('openai',
+                                         prompt_tokens=prompt_tokens,
+                                         completion_tokens=completion_tokens,
+                                         total_tokens=total_tokens)
 
         content = response.choices[0].message.content.strip()
         #print(f"OpenAI Response: {content}")  # Debugging: See what is returned
@@ -203,6 +236,17 @@ class LanguageModelInterface:
             try:
                 response = self.bedrock.invoke_model(body=body, modelId="anthropic.claude-3-5-sonnet-20240620-v1:0")
                 response_body = json.loads(response.get("body").read())
+                # Extracts from response_body['usage'] dictionary
+                usage_info = response_body.get("usage", {})
+                prompt_tokens = usage_info.get("input_tokens", 0)    # Bedrock/Anthropic names
+                completion_tokens = usage_info.get("output_tokens", 0) # Bedrock/Anthropic names
+                total_tokens = prompt_tokens + completion_tokens # Usually calculated
+
+                # Passes them separately
+                llm_token_observer.update_tokens('bedrock',
+                                                 prompt_tokens=prompt_tokens,
+                                                 completion_tokens=completion_tokens,
+                                                 total_tokens=total_tokens)
                 res_content = response_body.get("content")[0]['text']
                 return res_content.strip()
             except ClientError as e:
@@ -262,6 +306,18 @@ class LanguageModelInterface:
 
         if not response:
             return {"error": "Empty response from OpenAI"}
+
+        # Extracts from response.usage object
+        usage = response.usage
+        prompt_tokens = getattr(usage, 'prompt_tokens', 0)
+        completion_tokens = getattr(usage, 'completion_tokens', 0)
+        total_tokens = getattr(usage, 'total_tokens', 0)
+
+        # Passes them separately to the observer
+        llm_token_observer.update_tokens('openai',
+                                         prompt_tokens=prompt_tokens,
+                                         completion_tokens=completion_tokens,
+                                         total_tokens=total_tokens)
 
         content = response.choices[0].message.content.strip()
         return content
