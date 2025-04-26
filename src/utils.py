@@ -66,3 +66,9 @@ def read_file_names(augmented_data_dir):
     except Exception as e:
         print(f"Error reading directory {augmented_data_dir}: {e}")
         return []
+
+def get_file_count(folder_path: str) -> int:
+    """
+    Get the number of files in a folder.
+    """
+    return len([f for f in os.listdir(folder_path) if os.path.isfile(os.path.join(folder_path, f))])

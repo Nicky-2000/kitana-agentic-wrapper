@@ -8,6 +8,7 @@ from src.embedding_datalake_search import embedding_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
+from src.utils import get_file_count
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
@@ -31,6 +32,10 @@ def run_kitana(
     target_feature: str,
 ):
 
+    if get_file_count(seller_data_folder_path) == 0: 
+        print(f"Warning: {seller_data_folder_path} is empty. No files to process. (This is expected for some test cases)")
+        return None
+
     config = Config(
         search=SearchConfig(iterations=12),
         data=DataConfig(
@@ -41,7 +46,7 @@ def run_kitana(
             one_target_feature=False,
             need_to_clean_data=True,
         ),
-        experiment=ExperimentConfig(plot_results=True, results_dir="results/"),
+        experiment=ExperimentConfig(plot_results=False, results_dir="results/"),
         logging=LoggingConfig(level="ERROR", file="logs/original_sample_execution.log"),
     )
 
@@ -49,6 +54,9 @@ def run_kitana(
     company = ScaledExperiment(config)
     company_experiment_result = company.run()
     
+    if company_experiment_result is None:
+        print(f"Warning: No valid results found for {seller_data_folder_path}.")
+        return None
     kitana_results = KitanaResults.from_dict(company_experiment_result)
     
     return kitana_results
@@ -79,7 +87,7 @@ def clean_data_folder(folder_path: str):
 if __name__ == "__main__":
     # Load in the datalake files
     load_in_datalake(
-        g_drive_url="https://drive.google.com/file/d/1I9nEDN0_mlxz2NoioHhqRNpOMViJFjRc/view?usp=sharing",
+        g_drive_url="https://drive.google.com/file/d/1gSqBzDnqHmBvHVekADfHlILxH3t6_SST/view?usp=sharing",
         extract_folder="data",
         zip_filename="datalake.zip",
         delete_zip_after_extract=True,
@@ -109,6 +117,18 @@ if __name__ == "__main__":
             "Cost_of_Living_Index_by_Country_2024.csv",
             "Groceries Index",
             [["Country"]],
+        ),
+        TestCase.from_name(
+            "test_case_4",
+            "housing_geo_data.csv",
+            "median_house_value",
+            [["latitude"]],
+        ),
+        TestCase.from_name(
+            "test_case_5",
+            "property_details.csv",
+            "Price",
+            [["Address"]],
         ),
     ]
     
@@ -157,7 +177,8 @@ if __name__ == "__main__":
                     target_feature=test_case.target_feature,
                 )
                 kitana_history.kitana_results.append(new_kitana_results)
-
+        except Exception as e:
+            print(f"An error occurred during execption: {e}. Don't Ignore!")
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
             print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")

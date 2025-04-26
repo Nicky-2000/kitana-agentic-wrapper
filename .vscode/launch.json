@@ -6,11 +6,11 @@
     "configurations": [
         {
             "name": "Python: Run kitana_agentic_wrapper",
-            "type": "python",
+            "type": "debugpy",
             "request": "launch",
             "program": "${workspaceFolder}/run_kitana_agentic_wrapper.py",
             "console": "integratedTerminal",
-            "pythonPath": "${workspaceFolder}/venv/bin/python"
+            // "pythonPath": "${workspaceFolder}/venv/bin/python"
         }
     ]
 }
