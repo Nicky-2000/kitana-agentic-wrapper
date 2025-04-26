@@ -9,14 +9,14 @@ class VectorDBConfig:
 
 @dataclass
 class LanguageModelConfig:
-    api_type: str | None
-    openai_api_key: str | None
-    aws_access_key_id: str | None
-    aws_secret_access_key: str | None
-    aws_region: str | None
-    google_api_key: str | None
-    embedding_api_type: str | None
-    local_model_name: str | None
+    api_type: str
+    openai_api_key: str
+    aws_access_key_id: str
+    aws_secret_access_key: str
+    aws_region: str
+    google_api_key: str
+    embedding_api_type: str
+    local_model_name: str
 
     def __getitem__(self, key):
         return getattr(self, key)
