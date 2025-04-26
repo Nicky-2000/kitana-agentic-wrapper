@@ -24,7 +24,3 @@ def oracle_datalake_search(kitana_history: KitanaHistory, datalake: Datalake, te
     else:
         return []
 
-if __name__ == "__main__":
-
-    top_selections = embedding_datalake_search(kitana_results=None, datalake_path="data/datalake", query_column="suicides_no", query_table="master.csv")
-    print(top_selections)
