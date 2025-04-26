@@ -51,12 +51,12 @@ class KitanaHistory:
         return {
             "kitana_results": [
                 {
-                    "augplan": [(a.table_id, a.iteration, a.table_name, a.column_name) for a in result.augplan],
+                    "augplan": [(a.table_id, a.iteration, a.table_name, a.column_name) for a in result.augplan if a != None],
                     "accuracy": result.accuracy,
                     "time_taken": result.time_taken,
                     "num_iterations": result.num_iterations,
                 }
-                for result in self.kitana_results
+                for result in self.kitana_results if result != None
             ],
             "files_cleaned": self.files_cleaned,
         }
