@@ -6,6 +6,7 @@ import os
 from src.datalake_src.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
+from src.datalake_src.Datalake import DataLake
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
@@ -114,7 +115,8 @@ if __name__ == "__main__":
     buyer_csv_path = f"data/{test_case}/buyer/master.csv"
     seller_data_folder_path, buyer_csv_path = init_augmented_seller_folder(test_case)
 
-    datalake_path = "data/datalake"
+    datalake = DataLake(datalake_folder="data/datalake")
+    
     results_history = []
     files_added = []
 
@@ -133,19 +135,17 @@ if __name__ == "__main__":
             # This is where our methods come into play
 
             # Examples:
-            files_to_use = embedding_datalake_search(results_history, datalake_path)
+            files_to_use = embedding_datalake_search(results_history, datalake)
             # or
-            files_to_use = MCTS_datalake_search(results_history, datalake_path)
+            files_to_use = MCTS_datalake_search(results_history, datalake)
 
             print(f"Adding Files in datalake: {files_to_use}")
             files_added.append(files_to_use)
 
             # Step 3: Copy the files to a folder where kitana can access it
-            # TODO: Can decide to modify / make this more genric
-            copy_files_to_folder(
-                src_folder=datalake_path,  # Path where we found new data to use
-                dest_folder=seller_data_folder_path,  # Path we use to run the experiement
-                files=files_to_use,  # The files we found!
+            datalake.copy_files(
+                files=files_to_use,
+                dest_folder=seller_data_folder_path,
             )
             # Step 4: Run the experiment again with the new data (Repeat)
             new_results = run_kitana(
