@@ -74,26 +74,6 @@ def clean_data_folder(folder_path: str):
             os.remove(file_path)
 
 
-def init_augmented_seller_folder(test_case: str):
-    original_seller_data_folder_path = f"data/{test_case}/seller"
-    # Augmented seller data folder path (The folder we will iteratively add data to and perform kitana experiments on)
-    augmented_seller_data_folder_path = f"data/{test_case}/seller_augmented"
-
-    # Create the target directory if it doesn't exist
-    os.makedirs(augmented_seller_data_folder_path, exist_ok=True)
-
-    # Make sure the folder is clean
-    clean_data_folder(augmented_seller_data_folder_path)
-
-    # Copy the files from the original seller data folder to the augmented folder
-    copy_files_to_folder(
-        src_folder=original_seller_data_folder_path,
-        dest_folder=augmented_seller_data_folder_path,
-        files=os.listdir(original_seller_data_folder_path),
-    )
-    return augmented_seller_data_folder_path, buyer_csv_path
-
-
 if __name__ == "__main__":
     # Load in the datalake files
     load_in_datalake(
