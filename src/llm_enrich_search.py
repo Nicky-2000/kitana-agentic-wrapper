@@ -1,11 +1,12 @@
 from src.embedding_datalake_search import embedding_datalake_search
 from src.filterTables import FilterByEmbeddings, FilterTables
+from src.kitana_history.query_history import KitanaHistory
 from src.utils import read_file_names
 from pathlib import Path
 
 
 
-def llm_enrich_search_func(kitana_results: list[dict], datalake, test_case, top_k:int = 5):
+def llm_enrich_search_func(kitana_results:KitanaHistory, datalake, test_case, top_k:int = 5):
     """
     Reads in the tables in the data lake
     For a given query table and query column, return to
