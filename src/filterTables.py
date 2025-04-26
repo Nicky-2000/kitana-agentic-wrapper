@@ -16,11 +16,12 @@ class FilterTables:
         self.tables.append(table)
 
     #@abstractmethod
-    def filterByQuery(self, query, target_table, data_folder, n:int) -> list[str]:
+    def filterByQuery(self, query, target_table, query_location, data_folder, n:int) -> list[str]:
+        
         if target_table not in self.tables:
             self.add_table(target_table)
 
-        fin_dict = enrich_and_filter_table_list(table_list=self.tables, query_table=target_table, query_column=query, data_folder = data_folder)
+        fin_dict = enrich_and_filter_table_list(table_list=self.tables, query_table=target_table, query_column=query, query_location=query_location, data_folder = data_folder, num_tables=n)
 
         return fin_dict
 
