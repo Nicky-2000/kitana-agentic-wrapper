@@ -1,7 +1,7 @@
 import os
-from language_model_interface import LanguageModelInterface
-from token_observer import llm_token_observer
-from typed_dicts import LanguageModelConfig
+from src.language_model_interface import LanguageModelInterface
+from src.token_observer import llm_token_observer
+from src.typed_dicts import LanguageModelConfig
 
 config = LanguageModelConfig(
     api_type=os.getenv("API_TYPE", ""),
@@ -25,47 +25,51 @@ def test_token_observer():
     lm = LanguageModelInterface(config)
 
     lm.get_response("Hi there, how are you doing today?", 0, False)
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
     lm.get_text_response("Hi there, how are you doing today?")
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
-    assert observer1.get_total_tokens() == observer2.get_total_tokens(), "Token counts do not match between instances."
-    assert observer1.get_total_tokens()["google"]["prompt"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["google"]["completion"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["google"]["total"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts() == observer2.get_api_token_counts(), "Token counts do not match between instances."
+    assert observer1.get_api_token_counts()["google"]["prompt"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["google"]["completion"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["google"]["total"] > 0, "Tokens consumed"
 
     observer1.reset()
-    assert observer1.get_total_tokens()["google"]["prompt"] == 0, "Tokens not reset"
-    assert observer1.get_total_tokens()["google"]["completion"] == 0, "Tokens not reset"
-    assert observer1.get_total_tokens()["google"]["total"] == 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["google"]["prompt"] == 0, "Tokens not reset"
+    assert observer1.get_api_token_counts()["google"]["completion"] == 0, "Tokens not reset"
+    assert observer1.get_api_token_counts()["google"]["total"] == 0, "Tokens consumed"
 
     config.api_type = "openai"
 
     lm = LanguageModelInterface(config)
 
     lm.get_response("Hi there, how are you doing today? return a json with {'answer': '<your answer>'}", 0, False)
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
     lm.get_text_response("Hi there, how are you doing today?")
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
-    assert observer1.get_total_tokens()["openai"]["prompt"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["openai"]["completion"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["openai"]["total"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["openai"]["prompt"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["openai"]["completion"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["openai"]["total"] > 0, "Tokens consumed"
 
     config.api_type = "local"
 
     lm = LanguageModelInterface(config)
 
     lm.get_response("Hi there, how are you doing today?", 0, False)
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
     lm.get_text_response("Hi there, how are you doing today?")
-    print(observer1.get_total_tokens())
+    print(observer1.get_api_token_counts())
 
-    assert observer1.get_total_tokens()["local"]["prompt"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["local"]["completion"] > 0, "Tokens consumed"
-    assert observer1.get_total_tokens()["local"]["total"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["local"]["prompt"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["local"]["completion"] > 0, "Tokens consumed"
+    assert observer1.get_api_token_counts()["local"]["total"] > 0, "Tokens consumed"
+    
+    print(observer1.get_overall_totals())
+
+    assert observer1.get_overall_totals()["prompt"] > 0, "Tokens consumed"
 
 test_token_observer()

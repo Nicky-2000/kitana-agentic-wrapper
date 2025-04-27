@@ -10,6 +10,7 @@ from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
 from src.utils import get_file_count
+from src.token_observer import llm_token_observer
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
@@ -198,3 +199,8 @@ if __name__ == "__main__":
             os.makedirs("kitana_logs", exist_ok=True)
             kitana_history.save(history_save_path)
             print(f"[INFO] Saved history to {history_save_path}")
+
+        # Print the overall token counts
+        print("Overall Token Counts:")
+        print(llm_token_observer.get_overall_totals())
+        llm_token_observer.reset()
