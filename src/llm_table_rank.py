@@ -2,7 +2,7 @@ import logging
 import os
 from typing import Tuple
 import pandas as pd
-from language_model_interface import LanguageModelInterface, Config
+from src.language_model_interface import LanguageModelInterface, Config
 import json as json_package
 import numpy as np
 
@@ -51,15 +51,15 @@ def rank_all_tables(query_table, query_column, aug_plan, num_tables = 5, window_
     top_descript = get_simple_table_description_from_col_names(top_aug_table, top_aug_table_columns, lm)
     bottom_descript = get_simple_table_description_from_col_names(bottom_aug_table, bottom_aug_table_columns, lm)
 
-    print("query descript")
-    print(query_descript)
-    print()
-    print("top descript")
-    print(top_descript)
-    print()
-    print("bottom descript")
-    print(bottom_descript)
-    print()
+    # print("query descript")
+    # print(query_descript)
+    # print()
+    # print("top descript")
+    # print(top_descript)
+    # print()
+    # print("bottom descript")
+    # print(bottom_descript)
+    # print()
 
     c = 0 
     top_table_candidates = []
@@ -79,10 +79,10 @@ def rank_all_tables(query_table, query_column, aug_plan, num_tables = 5, window_
             bottom_descript = bottom_descript,
         )
 
-        print(f"Eval {c}: {top_table_candidates}")
+    #     print(f"Eval {c}: {top_table_candidates}")
 
-    print("END OF EVAL")
-    print()
+    # print("END OF EVAL")
+    # print()
     return top_table_candidates
 
 def rank_tables(query_table, query_column, table_list, table_description = "", top_descript = "",bottom_descript = "", num_tables = 5, demo_folder = "data/datalake"):
@@ -118,15 +118,15 @@ def rank_tables(query_table, query_column, table_list, table_description = "", t
 
     """
 
-    print("compare prompt")
-    print(prompt)
+    # print("compare prompt")
+    # print(prompt)
 
     chain_of_thought_response = lm.get_text_response(prompt)
 
-    print()
-    print("#######   Response   ########")
-    print(chain_of_thought_response)
-    print()
+    # print()
+    # print("#######   Response   ########")
+    # print(chain_of_thought_response)
+    # print()
     return parse_list_rankings(chain_of_thought_response, num_tables, table_list)
 
 def parse_list_rankings(llm_response, num_tables, table_list, demo_folder = "data"):
