@@ -14,6 +14,7 @@ from src.utils import get_file_count
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
 
+
 import pandas as pd
 import numpy as np
 from search_engine.experiment import ScaledExperiment
@@ -86,6 +87,8 @@ def clean_data_folder(folder_path: str):
 
 
 if __name__ == "__main__":
+    from dotenv import load_dotenv
+    load_dotenv()
     # Load in the datalake files
     load_in_datalake(
         g_drive_url="https://drive.google.com/file/d/1gSqBzDnqHmBvHVekADfHlILxH3t6_SST/view?usp=sharing",
@@ -107,29 +110,35 @@ if __name__ == "__main__":
         TestCase.from_name(
             "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
         ),
-        # TestCase.from_name(
-        #     "test_case_2",
-        #     "Life Expectancy Data.csv",
-        #     "Life expectancy",
-        #     [["Country"], ["year"]],
-        # ),
+        TestCase.from_name(
+            "test_case_2",
+            "raw_data.csv",
+            "human_development_index",
+            [["Country"]],
+        ),
         TestCase.from_name(
             "test_case_3",
             "Cost_of_Living_Index_by_Country_2024.csv",
             "Groceries Index",
             [["Country"]],
         ),
+        # TestCase.from_name(
+        #     "test_case_4",
+        #     "housing_geo_data.csv",
+        #     "median_house_value",
+        #     [["latitude"]],
+        # ),
+        # TestCase.from_name(
+        #     "test_case_5",
+        #     "property_details.csv",
+        #     "Price",
+        #     [["Address"]],
+        # ),
         TestCase.from_name(
-            "test_case_4",
-            "housing_geo_data.csv",
-            "median_house_value",
-            [["latitude"]],
-        ),
-        TestCase.from_name(
-            "test_case_5",
-            "property_details.csv",
-            "Price",
-            [["Address"]],
+            "test_case_6",
+            "wfp_market_food_prices.csv",
+            "mp_price",
+            [["Country"]],
         ),
     ]
     
@@ -151,12 +160,12 @@ if __name__ == "__main__":
         kitana_history.kitana_results.append(kitana_results)
 
         try:
-            for i in range(1):
+            for i in range(3):
                 # Step 2: Use results to search the "datalake"
                 # This is where our methods come into play
 
                 # Examples:
-                files_to_use = oracle_datalake_search(kitana_history, datalake, test_case, top_k=5)
+                files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=5)
                 # or
                 # files_to_use = MCTS_datalake_search(results_history, datalake)
 

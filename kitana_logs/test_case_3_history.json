@@ -1,0 +1,399 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          10,
+          1,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          5,
+          2,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ],
+        [
+          11,
+          3,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Low-carbon electricity (% electricity)"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_infant deaths"
+        ],
+        [
+          14,
+          5,
+          "country_wise_latest",
+          "Country_country_wise_latest_New recovered"
+        ],
+        [
+          14,
+          6,
+          "country_wise_latest",
+          "Country_country_wise_latest_1 week % increase"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_PM10"
+        ],
+        [
+          3,
+          8,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_ thinness 5-9 years"
+        ],
+        [
+          11,
+          9,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Renewable-electricity-generating-capacity-per-capita"
+        ],
+        [
+          10,
+          10,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          3,
+          11,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Total expenditure"
+        ],
+        [
+          1,
+          12,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Social support"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9477551278695305,
+        0.95548551652208,
+        0.9555935078967129,
+        0.9563396572141344,
+        0.9577492661946574,
+        0.9578716274632288,
+        0.9576487697390593,
+        0.9572784766524508,
+        0.9569091962196875,
+        0.9573274106101575,
+        0.9569639654743066,
+        0.956589485742108
+      ],
+      "time_taken": 0.3466532230377197,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          12,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Low-carbon electricity (% electricity)"
+        ],
+        [
+          11,
+          2,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          2,
+          3,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Dystopia + residual"
+        ],
+        [
+          12,
+          4,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from nuclear (TWh)"
+        ],
+        [
+          11,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          15,
+          6,
+          "country_wise_latest",
+          "Country_country_wise_latest_Active"
+        ],
+        [
+          3,
+          7,
+          "GCB2022v27_MtCO2_flat",
+          "Country_GCB2022v27_MtCO2_flat_Total"
+        ],
+        [
+          10,
+          8,
+          "raw_data",
+          "Country_raw_data_population"
+        ],
+        [
+          2,
+          9,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Ladder score"
+        ],
+        [
+          3,
+          10,
+          "GCB2022v27_MtCO2_flat",
+          "Country_GCB2022v27_MtCO2_flat_Year"
+        ],
+        [
+          17,
+          11,
+          "fifa_ranking",
+          "Country_fifa_ranking_two_year_ago_weighted"
+        ],
+        [
+          6,
+          12,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_PM2.5 AQI Value"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9504333347334624,
+        0.9523764018897655,
+        0.9519473876012103,
+        0.9528553597683884,
+        0.9524996895991836,
+        0.9520646371040122,
+        0.9516355943514703,
+        0.9517567990381056,
+        0.9514512413880334,
+        0.9509844264013795,
+        0.9506513192475944,
+        0.9542538759667796
+      ],
+      "time_taken": 0.24279284477233887,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          17,
+          1,
+          "global_housing_market_extended",
+          "Country_global_housing_market_extended_Construction Index"
+        ],
+        [
+          13,
+          2,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_gb-defra-index"
+        ],
+        [
+          13,
+          3,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          14,
+          4,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from renewables (TWh)"
+        ],
+        [
+          13,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          5,
+          6,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          12,
+          7,
+          "global_food_wastage_dataset",
+          "Country_global_food_wastage_dataset_Total Waste (Tons)"
+        ],
+        [
+          13,
+          8,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          1,
+          9,
+          "world-happiness-report-2019",
+          "Country_world-happiness-report-2019_Freedom"
+        ],
+        [
+          13,
+          10,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_wind_mph"
+        ],
+        [
+          2,
+          11,
+          "sugar_consumption_dataset",
+          "Country_sugar_consumption_dataset_Climate_Conditions"
+        ],
+        [
+          20,
+          12,
+          "fifa_ranking",
+          "Country_fifa_ranking_three_year_ago_avg"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9480602786874097,
+        0.9476041092547425,
+        0.9471492865215065,
+        0.9492015607520603,
+        0.9576032974386038,
+        0.9572108193491956,
+        0.9570167304096184,
+        0.9572053798603729,
+        0.9572028872503865,
+        0.9581820935884813,
+        0.9583805119078572,
+        0.957996311703122
+      ],
+      "time_taken": 0.3184092044830322,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          18,
+          1,
+          "global_housing_market_extended",
+          "Country_global_housing_market_extended_Construction Index"
+        ],
+        [
+          14,
+          2,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_gb-defra-index"
+        ],
+        [
+          14,
+          3,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          15,
+          4,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from renewables (TWh)"
+        ],
+        [
+          14,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          5,
+          6,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          13,
+          7,
+          "global_food_wastage_dataset",
+          "Country_global_food_wastage_dataset_Total Waste (Tons)"
+        ],
+        [
+          14,
+          8,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          1,
+          9,
+          "world-happiness-report-2019",
+          "Country_world-happiness-report-2019_Freedom"
+        ],
+        [
+          14,
+          10,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_wind_mph"
+        ],
+        [
+          2,
+          11,
+          "sugar_consumption_dataset",
+          "Country_sugar_consumption_dataset_Climate_Conditions"
+        ],
+        [
+          21,
+          12,
+          "fifa_ranking",
+          "Country_fifa_ranking_three_year_ago_avg"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9480602786874097,
+        0.9476041092547425,
+        0.9471492865215065,
+        0.9492015607520603,
+        0.9576032974386038,
+        0.9572108193491956,
+        0.9570167304096184,
+        0.9572053798603729,
+        0.9572028872503865,
+        0.9581820935884813,
+        0.9583805119078572,
+        0.957996311703122
+      ],
+      "time_taken": 0.26126718521118164,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "col_per_country_2024.csv",
+      "cost_of_living.csv",
+      "qol_per_country_2024.csv",
+      "Country_Dataset.csv",
+      "Meat consumption.csv"
+    ],
+    [
+      "global_food_wastage_dataset.csv",
+      "Country.csv",
+      "sugar_consumption_dataset.csv",
+      "lifeexpectancy-verbose.csv",
+      "global_housing_market_extended.csv"
+    ],
+    [
+      "GDP per capita.csv",
+      "regional_4bedroom_rental_prices.csv",
+      "meat_consumption_worldwide.csv",
+      "world-data-2023.csv",
+      "indianEco.csv"
+    ]
+  ]
+}

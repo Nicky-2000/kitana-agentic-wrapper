@@ -1,0 +1,357 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          1,
+          7,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Generosity"
+        ],
+        [
+          6,
+          8,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Rank"
+        ],
+        [
+          10,
+          9,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_PM2.5"
+        ],
+        [
+          3,
+          10,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ],
+        [
+          10,
+          11,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_gb-defra-index"
+        ],
+        [
+          5,
+          12,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466881226750308,
+        0.7466963373262194,
+        0.7471135088611744,
+        0.7521768903191227,
+        0.7530561262698876,
+        0.7539851872148393,
+        0.7549174583615754,
+        0.7550376875776076
+      ],
+      "time_taken": 2.548180103302002,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          12,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          14,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          4,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          4,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          11,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          11,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466898288141974,
+        0.7466963373262194
+      ],
+      "time_taken": 1.2393968105316162,
+      "num_iterations": 6
+    },
+    {
+      "augplan": [
+        [
+          9,
+          1,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2005"
+        ],
+        [
+          9,
+          2,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2006"
+        ],
+        [
+          9,
+          3,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2007"
+        ],
+        [
+          9,
+          4,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2009"
+        ],
+        [
+          13,
+          5,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Land Area(Km2)"
+        ],
+        [
+          9,
+          6,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2000"
+        ],
+        [
+          9,
+          7,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2008"
+        ],
+        [
+          9,
+          8,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2010"
+        ],
+        [
+          4,
+          9,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Alcohol"
+        ],
+        [
+          9,
+          10,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_1991"
+        ],
+        [
+          18,
+          11,
+          "fifa_ranking",
+          "Country_fifa_ranking_cur_year_avg"
+        ],
+        [
+          6,
+          12,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_CO AQI Value"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7050711438981501,
+        0.7111795975772485,
+        0.7126836370401555,
+        0.7131477232666003,
+        0.7132367516067339,
+        0.7132982732047572,
+        0.7145934214478074,
+        0.7226423554897718,
+        0.7337370568642568,
+        0.7433699484452327,
+        0.7436705124564655,
+        0.7438591178245726
+      ],
+      "time_taken": 2.5069198608398438,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          9,
+          1,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2005"
+        ],
+        [
+          9,
+          2,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2006"
+        ],
+        [
+          9,
+          3,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2007"
+        ],
+        [
+          9,
+          4,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2009"
+        ],
+        [
+          13,
+          5,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Land Area(Km2)"
+        ],
+        [
+          9,
+          6,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2000"
+        ],
+        [
+          9,
+          7,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2008"
+        ],
+        [
+          9,
+          8,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_2010"
+        ],
+        [
+          4,
+          9,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Alcohol"
+        ],
+        [
+          9,
+          10,
+          "Human_life_Expectancy",
+          "Country_Human_life_Expectancy_1991"
+        ],
+        [
+          18,
+          11,
+          "fifa_ranking",
+          "Country_fifa_ranking_cur_year_avg"
+        ],
+        [
+          6,
+          12,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_CO AQI Value"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7050711438981501,
+        0.7111795975772485,
+        0.7126836370401555,
+        0.7131477232666003,
+        0.7132367516067339,
+        0.7132982732047572,
+        0.7145934214478074,
+        0.7226423554897718,
+        0.7337370568642568,
+        0.7433699484452327,
+        0.7436705124564655,
+        0.7438591178245726
+      ],
+      "time_taken": 2.5294859409332275,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "customer_feedback_satisfaction.csv",
+      "Country_Dataset.csv",
+      "sales.csv",
+      "housing_location_data.csv",
+      "hdi.csv"
+    ],
+    [
+      "housing_ownership_construction.csv",
+      "Human_life_Expectancy.csv",
+      "height_weight_data.csv",
+      "loan_applicant_demographics.csv",
+      "regional_sales_time_series_1.csv"
+    ],
+    [
+      "regional_sale_prices_time_series_1.csv",
+      "regional_sales_time_series.csv",
+      "Computed insight - Success of active sellers.csv",
+      "Family Households_with_Married_Couples_Data.csv",
+      "regional_zhvi_time_series_1.csv"
+    ]
+  ]
+}
