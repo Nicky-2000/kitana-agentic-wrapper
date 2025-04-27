@@ -150,8 +150,8 @@ def get_sorted_accuracy_tables(aug_plan):
 
     accuracy_tuples = []
     #print(len(aug_plan[0]["accuracy"]))
-    for x in range(0, len(aug_plan[0]["accuracy"])-1):
-        tuples_add = (aug_plan[0]["augplan"][x][2], aug_plan[0]["accuracy"][x+1] - aug_plan[0]["accuracy"][x])
+    for x in range(0, len(aug_plan["accuracy"])-1):
+        tuples_add = (aug_plan["augplan"][x][2], aug_plan["accuracy"][x+1] - aug_plan["accuracy"][x])
         accuracy_tuples.append(tuples_add)
 
     return sorted(accuracy_tuples, key=lambda x: x[1])
@@ -193,6 +193,8 @@ if __name__ == "__main__":
         "time_taken": 0.7184240818023682,
     }
     ]
+
+    
 
    
     top_table = rank_all_tables(query_table="master.csv", query_column="suicides_no", aug_plan=aug_plan, num_tables=1)
