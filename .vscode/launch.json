@@ -11,6 +11,16 @@
             "program": "${workspaceFolder}/run_kitana_agentic_wrapper.py",
             "console": "integratedTerminal",
             // "pythonPath": "${workspaceFolder}/venv/bin/python"
+        },
+        {
+            "name": "Python: Current File",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${file}",
+            "console": "integratedTerminal",
+            "env": {
+                "PYTHONPATH": "${workspaceFolder}"
+            }
         }
     ]
 }
