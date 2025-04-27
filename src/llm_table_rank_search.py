@@ -20,12 +20,12 @@ def llm_selector_search_func(kitana_results:KitanaHistory, datalake, test_case, 
 
     top_selections = embedding_datalake_search(kitana_results, datalake, test_case, top_k = 20)
 
-    print("##### KITANA RESULTS ########")
-    print()
-
-    print("##### END RESULTS ########")
+    # print("##### KITANA RESULTS ########")
+    # print(kitana_results.to_dict()["kitana_results"][0])
+    # print("##### END RESULTS ########")
     llm_selections = rank_all_tables(query_table, query_column, 
-                    kitana_results.to_dict()["kitana_results"][0], #rip 
+                    #kitana_results.to_dict()["kitana_results"][0], #rip 
+                    kitana_results,
                     num_tables = top_k, 
                     window_size = 10, 
                     datalake_folder = "data/datalake", 
