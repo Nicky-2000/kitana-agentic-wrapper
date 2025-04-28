@@ -5,6 +5,8 @@ import os
 from src.kitana_history.query_history import Augplan, KitanaResults, KitanaHistory
 from src.datalake.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
+from src.llm_enrich_search import llm_enrich_search_func
+from src.llm_table_rank_search import llm_selector_search_func
 from src.oracle_datalake_search import oracle_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake.Datalake import DataLake
@@ -108,41 +110,44 @@ if __name__ == "__main__":
     # Pseudo code:
 
     test_cases = [
-        TestCase.from_name(
-            "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
-        ),
-        TestCase.from_name(
-            "test_case_2",
-            "raw_data.csv",
-            "human_development_index",
-            [["Country"]],
-        ),
-        TestCase.from_name(
-            "test_case_3",
-            "Cost_of_Living_Index_by_Country_2024.csv",
-            "Groceries Index",
-            [["Country"]],
-        ),
         # TestCase.from_name(
-        #     "test_case_4",
-        #     "housing_geo_data.csv",
-        #     "median_house_value",
-        #     [["latitude"]],
+        #     "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
         # ),
+        # TestCase.from_name(
+        #     "test_case_2",
+        #     "raw_data.csv",
+        #     "human_development_index",
+        #     [["Country"]],
+        # ),
+        # TestCase.from_name(
+        #     "test_case_3",
+        #     "Cost_of_Living_Index_by_Country_2024.csv",
+        #     "Groceries Index",
+        #     [["Country"]],
+        # ),
+        TestCase.from_name(
+            "test_case_4",
+            "housing_geo_data.csv",
+            "median_house_value",
+            [["latitude"]],
+        ),
         # TestCase.from_name(
         #     "test_case_5",
         #     "property_details.csv",
         #     "Price",
         #     [["Address"]],
         # ),
-        TestCase.from_name(
-            "test_case_6",
-            "wfp_market_food_prices.csv",
-            "mp_price",
-            [["Country"]],
-        ),
+        # TestCase.from_name(
+        #     "test_case_6",
+        #     "wfp_market_food_prices.csv",
+        #     "mp_price",
+        #     [["Country"]],
+        # ),
     ]
     
+    method = "llm_enrich" #emb
+    top_k_param = 2
+
     for test_case in test_cases:
         
         test_case.prepare_augmented_folder()
@@ -161,14 +166,18 @@ if __name__ == "__main__":
         kitana_history.kitana_results.append(kitana_results)
 
         try:
-            for i in range(3):
+            for i in range(1):
                 # Step 2: Use results to search the "datalake"
                 # This is where our methods come into play
 
                 # Examples:
-                files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=5)
-                # or
-                # files_to_use = MCTS_datalake_search(results_history, datalake)
+                if method == "llm_enrich":
+                    files_to_use = llm_enrich_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
+                elif method == "llm_selector":
+                    files_to_use = llm_selector_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
+                else: 
+                    files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=top_k_param)
+                    method = "embedding"
 
                 print(f"Adding Files in datalake: {files_to_use}")
                 kitana_history.files_cleaned.append(files_to_use)
@@ -195,7 +204,7 @@ if __name__ == "__main__":
             print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")
             
             # ✨ Save history at the end!
-            history_save_path = f"kitana_logs/{test_case.name}_history.json"
+            history_save_path = f"kitana_logs/{test_case.name}_history_{method}.json"
             os.makedirs("kitana_logs", exist_ok=True)
             kitana_history.save(history_save_path)
             print(f"[INFO] Saved history to {history_save_path}")
