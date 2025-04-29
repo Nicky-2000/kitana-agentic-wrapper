@@ -38,7 +38,7 @@ class KitanaResults:
 class KitanaHistory:
     kitana_results: list[KitanaResults] = field(default_factory=list)
     files_cleaned: list[list[str]] = field(default_factory=list)
-    
+
     def __str__(self):
         s = f"KitanaHistory with {len(self.kitana_results)} runs:\n"
         for i, result in enumerate(self.kitana_results):

@@ -11,10 +11,11 @@ class EmbeddingDB:
     def __init__(self, tables: list[str]):
         self.tables = tables
 
-        db_name:str = (os.getenv("API_TYPE") if os.getenv("API_TYPE")!=None else "undefined")  + "_similarity"#type:ignore
-        table_name:str = "_".join(tables)
-        combined_name:str = db_name + table_name
-        self.name_hash = hashlib.sha1(combined_name.encode('utf-8')).hexdigest() #type:ignore
+        # db_name:str = (os.getenv("API_TYPE") if os.getenv("API_TYPE")!=None else "undefined")  + "_similarity"#type:ignore
+        # table_name:str = "_".join(tables)
+        # combined_name:str = db_name + table_name
+        # self.name_hash = hashlib.sha1(combined_name.encode('utf-8')).hexdigest() #type:ignore
+        self.name_hash = "constant_name"  # type:ignore
 
         config = LanguageModelConfig(
             api_type=os.getenv("API_TYPE"),
@@ -35,14 +36,14 @@ class EmbeddingDB:
 
         existing_ids = self.db.collection.get().get('ids', [])
 
-        for table in tqdm(tables, desc="Embedding tables"):
-            pd = get_pdataframe_from_csv(table)
-            if pd is not None:
-                column_names = ", ".join(pd.columns)
-                document = table + " " + column_names
-                if table not in existing_ids:
-                    time.sleep(0.27)  # Rate limit for embedding API
-                    self.db.add_document(document, id=table)
+        # for table in tqdm(tables, desc="Embedding tables"):
+        #     pd = get_pdataframe_from_csv(table)
+        #     if pd is not None:
+        #         column_names = ", ".join(pd.columns)
+        #         document = table + " " + column_names
+        #         if table not in existing_ids:
+        #             time.sleep(0.27)  # Rate limit for embedding API
+        #             self.db.add_document(document, id=table)
 
 
     def get_vector_db(self) -> VectorDB:

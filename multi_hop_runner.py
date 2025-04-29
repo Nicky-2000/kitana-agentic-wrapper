@@ -9,6 +9,7 @@ from src.llm_enrich_search import llm_enrich_search_func
 from src.llm_table_rank_search import llm_selector_search_func
 from src.oracle_datalake_search import oracle_datalake_search
 from src.MCTS_datalake_search import MCTS_datalake_search
+from src.multi_hop_agent import multiHopAgent
 from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
 from src.utils import get_file_count
@@ -28,6 +29,20 @@ from search_engine.config import (
     ExperimentConfig,
     LoggingConfig,
 )
+
+def copy_files(src_folder: str, dest_folder: str):
+    """
+    Copy files from src_folder to dest_folder.
+    NOTE: This assumes that all the files belong to the same folder.
+    """
+    for filename in os.listdir(src_folder):
+        src_file = os.path.join(src_folder, filename)
+        dst_file = os.path.join(dest_folder, filename)
+
+        if os.path.isfile(src_file):
+            shutil.copy2(src_file, dst_file)
+        else:
+            print(f"Warning: {src_file} does not exist or is not a file.")
 
 
 def run_kitana(
@@ -93,56 +108,8 @@ if __name__ == "__main__":
     from dotenv import load_dotenv
     load_dotenv()
     # Load in the datalake files
-    load_in_datalake(
-        g_drive_url="https://drive.google.com/file/d/1gSqBzDnqHmBvHVekADfHlILxH3t6_SST/view?usp=sharing",
-        extract_folder="data",
-        zip_filename="datalake.zip",
-        delete_zip_after_extract=True,
-    )
-    # High level flow of what we can do here:
-    # In a loop:
-    # 1. Run the experiment and get the results (augplan and accuracy)
-    # 2. Use the results_history to search for data from the data lake
-    # Copy the files we want to run the experiment to a folder where kitana can access it.
-    # 3. Run the experiment again with the new data
-    # 4. Repeat until we get the results we want
-
-    # Pseudo code:
 
     test_cases = [
-        # TestCase.from_name(
-        #     "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
-        # ),
-        # TestCase.from_name(
-        #     "test_case_2",
-        #     "raw_data.csv",
-        #     "human_development_index",
-        #     [["Country"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_3",
-        #     "Cost_of_Living_Index_by_Country_2024.csv",
-        #     "Groceries Index",
-        #     [["Country"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_4",
-        #     "housing_geo_data.csv",
-        #     "median_house_value",
-        #     [["latitude"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_5",
-        #     "property_details.csv",
-        #     "Price",
-        #     [["Address"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_6",
-        #     "wfp_market_food_prices.csv",
-        #     "mp_price",
-        #     [["Country"]],
-        # ),
         TestCase.from_name(
             "test_case_7",
             "employee_performance.csv",
@@ -151,7 +118,6 @@ if __name__ == "__main__":
         ),
     ]
     
-    method = "llm_enrich" #emb
     top_k_param = 2
 
     for test_case in test_cases:
@@ -161,40 +127,25 @@ if __name__ == "__main__":
 
         kitana_history = KitanaHistory()
 
-        # Step 1: Run Kitana (Initial Run with original data)
-        kitana_results = run_kitana(
-            seller_data_folder_path=test_case.seller_augmented_folder_path,
-            buyer_csv_path=test_case.buyer_csv_path,
-            join_keys=test_case.join_keys,
-            target_feature=test_case.target_feature,
-        )
+        # kitana_results = run_kitana(
+        #     seller_data_folder_path=test_case.seller_augmented_folder_path,
+        #     buyer_csv_path=test_case.buyer_csv_path,
+        #     join_keys=test_case.join_keys,
+        #     target_feature=test_case.target_feature,
+        # )
         
-        kitana_history.kitana_results.append(kitana_results)
+        # kitana_history.kitana_results.append(kitana_results)
 
         try:
-            for i in range(1):
+            for i in range(2):
                 # Step 2: Use results to search the "datalake"
                 # This is where our methods come into play
 
                 # Examples:
-                if method == "llm_enrich":
-                    files_to_use = llm_enrich_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
-                elif method == "llm_selector":
-                    files_to_use = llm_selector_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
-                elif method == "oracle":
-                    files_to_use = oracle_datalake_search(kitana_history, datalake, test_case, top_k=top_k_param)
-                else: 
-                    files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=top_k_param)
-                    method = "embedding"
+                multiHopAgent(kitana_history, datalake, test_case, top_k=top_k_param, iteration=i)
 
-                print(f"Adding Files in datalake: {files_to_use}")
-                kitana_history.files_cleaned.append(files_to_use)
+                copy_files("temp", test_case.seller_augmented_folder_path)
 
-                # Step 3: Copy the files to a folder where kitana can access it
-                datalake.copy_files(
-                    files=files_to_use,
-                    dest_folder=test_case.seller_augmented_folder_path,
-                )
                 
                 # Step 4: Run the experiment again with the new data (Repeat)
                 new_kitana_results = run_kitana(
@@ -203,16 +154,18 @@ if __name__ == "__main__":
                     join_keys=test_case.join_keys,
                     target_feature=test_case.target_feature,
                 )
+                if new_kitana_results is None:
+                    continue
                 kitana_history.kitana_results.append(new_kitana_results)
-        except Exception as e:
-            print(f"Test case {test_case.name} failed")
-            print(f"An error occurred during execption: {e}. Don't Ignore!")
+        # except Exception as e:
+        #     print(f"Test case {test_case.name} failed")
+        #     print(f"An error occurred during execption: {e}. Don't Ignore!")
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
             print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")
             
             # ✨ Save history at the end!
-            history_save_path = f"kitana_logs/{test_case.name}_history_{method}_{top_k_param}.json"
+            history_save_path = f"kitana_logs/{test_case.name}_history_{'multi_hop'}_{top_k_param}.json"
             os.makedirs("kitana_logs", exist_ok=True)
             kitana_history.save(history_save_path)
             print(f"[INFO] Saved history to {history_save_path}")

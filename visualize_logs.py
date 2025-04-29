@@ -95,7 +95,7 @@ def print_augplan_with_highlights(history: KitanaHistory):
 
 # -------------------- Example Usage --------------------
 if __name__ == "__main__":
-    history_path = "kitana_logs/test_case_3_history.json"  # <-- change path if needed
+    history_path = "kitana_logs/test_case_7_history_multi_hop_2.json"  # <-- change path if needed
     history = load_history(history_path)
     
     plot_kitana_history(history, title="Test Case 3: Accuracy Improvement")

@@ -21,6 +21,14 @@
             "env": {
                 "PYTHONPATH": "${workspaceFolder}"
             }
+        },
+        {
+            "name": "Python: Run multi hop",
+            "type": "debugpy",
+            "request": "launch",
+            "program": "${workspaceFolder}/multi_hop_runner.py",
+            "console": "integratedTerminal",
+            // "pythonPath": "${workspaceFolder}/venv/bin/python"
         }
     ]
 }

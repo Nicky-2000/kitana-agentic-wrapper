@@ -1,0 +1,51 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "candidate",
+          "employee_id_candidate_email_id"
+        ]
+      ],
+      "accuracy": [
+        0.0,
+        -0.0009656029227016472
+      ],
+      "time_taken": 0.04859805107116699,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "candidate",
+          "employee_id_candidate_reviews"
+        ],
+        [
+          0,
+          2,
+          "candidate",
+          "employee_id_candidate_email_id"
+        ],
+        [
+          0,
+          3,
+          "candidate",
+          "employee_id_candidate_phone_no"
+        ]
+      ],
+      "accuracy": [
+        0.0,
+        6.145238933519259e-05,
+        -0.0008985711553093356,
+        -0.0009050789934439418
+      ],
+      "time_taken": 0.07174801826477051,
+      "num_iterations": 3
+    }
+  ],
+  "files_cleaned": []
+}

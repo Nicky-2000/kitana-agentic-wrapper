@@ -21,6 +21,8 @@ def oracle_datalake_search(kitana_history: KitanaHistory, datalake: Datalake, te
             "property_details_1.csv",
             "property_sales_data.csv",
             "property_details_2.csv"]
+    elif testcase.name == "test_case_7":
+        return []
     else:
         return []
 

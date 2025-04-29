@@ -1,0 +1,84 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          1,
+          1,
+          "property_sales_data",
+          "Address_property_sales_data_Price"
+        ],
+        [
+          2,
+          2,
+          "property_details_2",
+          "Address_property_details_2_Bathroom"
+        ],
+        [
+          3,
+          3,
+          "property_details_1",
+          "Address_property_details_1_Landsize"
+        ],
+        [
+          0,
+          4,
+          "property_location_data",
+          "Address_property_location_data_Distance"
+        ],
+        [
+          1,
+          5,
+          "property_sales_data",
+          "Address_property_sales_data_Postcode"
+        ],
+        [
+          3,
+          6,
+          "property_details_1",
+          "Address_property_details_1_Car"
+        ],
+        [
+          0,
+          7,
+          "property_location_data",
+          "Address_property_location_data_Propertycount"
+        ],
+        [
+          0,
+          8,
+          "property_location_data",
+          "Address_property_location_data_Lattitude"
+        ],
+        [
+          1,
+          9,
+          "property_sales_data",
+          "Address_property_sales_data_Longtitude"
+        ]
+      ],
+      "accuracy": [
+        0.2469901359222857,
+        0.9935786934968314,
+        0.9935807228113956,
+        0.993580249954689,
+        0.9935817082471805,
+        0.9935821010267392,
+        0.993581994818118,
+        0.9935815279325152,
+        0.9935814257759182,
+        0.9935809567118098
+      ],
+      "time_taken": 1.2889599800109863,
+      "num_iterations": 9
+    }
+  ],
+  "files_cleaned": [
+    [
+      "property_location_data.csv",
+      "property_details_1.csv",
+      "property_sales_data.csv",
+      "property_details_2.csv"
+    ]
+  ]
+}
