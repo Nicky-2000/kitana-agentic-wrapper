@@ -1,3 +1,4 @@
+import numpy as np
 from src.language_model_interface import LanguageModelInterface
 from src.typed_dicts import LanguageModelConfig, VectorDBConfig
 #from google.genai.types import ContentEmbedding
@@ -45,4 +46,16 @@ class VectorDB:
         :param id: ID of the document to remove.
         """
         self.collection.delete(ids=[id])
+    
+    def embed(self, text: str) -> list[float]:
+        return self.collection._embedding_function([text])[0]
+    
+    def get_cosine_similarity(self, text_a: str, text_b: str) -> float:
+        emb_a = self.db.embed(text_a)
+        emb_b = self.db.embed(text_b)
 
+        if emb_a is None or emb_b is None:
+            return 0.0
+
+        a, b = np.array(emb_a), np.array(emb_b)
+        return float(np.dot(a, b) / (np.linalg.norm(a) * np.linalg.norm(b)))

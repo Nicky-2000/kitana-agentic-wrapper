@@ -6,6 +6,36 @@ from src.language_model_interface import LanguageModelInterface, Config
 from sklearn.metrics.pairwise import cosine_similarity
 import numpy as np
 
+def estimate_join_keys(num_columns: int) -> int:
+    return max(1, min(5, round(0.10 * num_columns)))
+
+def estimate_join_columns_prompt(input_table:str, data_folder:str = "data"):
+    df = pd.read_csv(os.path.join(data_folder, input_table))
+    table_columns = df.columns.to_list()
+    #print(table_columns)
+
+    find_join_key_prompt = f"""
+    Given the following table name {input_table} and the following columns:
+    {table_columns}
+
+    List all of the potential join keys of the table. Response as briefly as possible.
+    """
+    
+    num_join_keys = estimate_join_keys(len(table_columns))
+    fake_join_columns = table_columns[:num_join_keys]
+    
+    fake_sample_join_key_data = df[fake_join_columns].sample(5).to_string()
+    
+    fin_prompt = f"""
+
+    Describe what the following join_key columns from the table {input_table} entail:
+
+    {fake_sample_join_key_data}
+
+    Please keep each description of the join key to one sentence.
+    """
+    return find_join_key_prompt + fin_prompt
+    
 
 def get_join_columns(lm:LanguageModelInterface, input_table:str, data_folder:str = "data"):
     """
@@ -46,24 +76,22 @@ def get_join_columns(lm:LanguageModelInterface, input_table:str, data_folder:str
 
     return join_columns, join_key_descript
 
-
-def get_table_description(lm:LanguageModelInterface, input_table:str, table_join_keys_description:str, data_folder:str = "data"):
-
-    
-
+def get_table_description_prompt(input_table:str, data_folder:str = "data"):
     df = pd.read_csv(os.path.join(data_folder, input_table))
-    table_columns = df.columns.to_list()
-
     sample_data = df.sample(5).to_string()
-
+    
     enrich_table_prompt = f"""
     Given the following sample from a table:
     {sample_data}
     Provide a one sentence description of the overall table
     """
+    return enrich_table_prompt
 
+    
+def get_table_description(lm:LanguageModelInterface, input_table:str, table_join_keys_description:str, data_folder:str = "data"):
+    enrich_table_prompt = get_table_description_prompt(input_table, data_folder = data_folder)
     enrich_table_description = lm.get_text_response(enrich_table_prompt)
-
+    
     return table_join_keys_description + "\n" + enrich_table_description
 
 def embed_descriptions(lm:LanguageModelInterface, description_dict:dict, query_table:str, pct_return_rate = 0.5, num_tables = None):
@@ -100,9 +128,7 @@ def embed_descriptions(lm:LanguageModelInterface, description_dict:dict, query_t
     return dict_to_return
 
 
-
 def enrich_and_filter_table_list(table_list:list[str], query_table, query_column, query_location, num_tables = 5, data_folder = "data/datalake"):
-
 
     config = Config()
     lm = LanguageModelInterface(config)

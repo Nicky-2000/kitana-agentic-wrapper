@@ -172,7 +172,12 @@ if __name__ == "__main__":
 
                 # Examples:
                 if method == "llm_enrich":
-                    files_to_use = llm_enrich_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
+                    files_to_use = llm_enrich_search_func(kitana_history, 
+                                                          datalake,
+                                                          test_case, 
+                                                          top_k=top_k_param,
+                                                          token_budget=10000, 
+                                                          budget_filter="greedy")
                 elif method == "llm_selector":
                     files_to_use = llm_selector_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
                 else: 
