@@ -51,8 +51,8 @@ class VectorDB:
         return self.collection._embedding_function([text])[0]
     
     def get_cosine_similarity(self, text_a: str, text_b: str) -> float:
-        emb_a = self.db.embed(text_a)
-        emb_b = self.db.embed(text_b)
+        emb_a = self.embed(text_a)
+        emb_b = self.embed(text_b)
 
         if emb_a is None or emb_b is None:
             return 0.0
