@@ -127,6 +127,55 @@ def embed_descriptions(lm:LanguageModelInterface, description_dict:dict, query_t
 
     return dict_to_return
 
+def table_is_joinable(lm:LanguageModelInterface, query_description, target_table_description):
+    prompt = f"""
+
+    Are the following two descriptions of the table's join column, are these tables joinable?
+
+    Table 1: 
+    {query_description}
+
+    Table 2:
+    {target_table_description}
+
+    Please reply yes or no ONLY.
+    """
+    # print()
+    # print("###############")
+    # print(prompt)
+
+    descript = lm.get_text_response(prompt)
+
+    # print("descript")
+    # print(descript)
+    # print()
+
+    if "yes" in descript.lower():
+        return True
+    else:
+        return False
+
+def join_key_agent(lm:LanguageModelInterface, description_dict:dict, query_table:str):
+    assert query_table in description_dict.keys(), "Query table must be in description_list"
+
+    #this is yucky code im sorry :(
+    keys_list = list(description_dict.keys())
+    query_index = keys_list.index(query_table)
+
+    fin_dict = {}
+    for key in description_dict:
+        if key == query_table: #keep query
+            fin_dict[key] = description_dict[key]
+        elif table_is_joinable(lm, description_dict[query_table], description_dict[key]):
+            fin_dict[key] = description_dict[key]
+        else:
+            continue
+
+    print(fin_dict)
+    return fin_dict
+
+
+
 
 def enrich_and_filter_table_list(table_list:list[str], query_table, query_column, query_location, num_tables = 5, data_folder = "data/datalake"):
 
@@ -150,6 +199,7 @@ def enrich_and_filter_table_list(table_list:list[str], query_table, query_column
 
     #now filter them out based on embedding similarity
     filtered_table_dict = embed_descriptions(lm, table_dict, query_table)
+    #filtered_table_dict = join_key_agent(lm, table_dict, query_table)
 
     filtered_table_dict_part_2 = {}
     for table in filtered_table_dict:
