@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          3,
+          8,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_ thinness  1-19 years"
+        ],
+        [
+          9,
+          9,
+          "master",
+          "Country_master_suicides_no"
+        ],
+        [
+          15,
+          10,
+          "Final",
+          "Country_Final_Internet Users(%)"
+        ],
+        [
+          16,
+          11,
+          "fifa_ranking",
+          "Country_fifa_ranking_previous_points"
+        ],
+        [
+          11,
+          12,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Low-carbon electricity (% electricity)"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466898288141974,
+        0.7466963373262194,
+        0.7474096441477004,
+        0.7476577227332071,
+        0.7482384705596152,
+        0.7789409906609106,
+        0.7803383326431924,
+        0.7809629942985488
+      ],
+      "time_taken": 3.1644678115844727,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          12,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          14,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          4,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          4,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          11,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          11,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          11,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_uv_index"
+        ],
+        [
+          2,
+          8,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Ladder score in Dystopia"
+        ],
+        [
+          4,
+          9,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_infant deaths"
+        ],
+        [
+          1,
+          10,
+          "world-happiness-report-2019",
+          "Country_world-happiness-report-2019_Log of GDP\r\nper capita"
+        ],
+        [
+          2,
+          11,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Social support"
+        ],
+        [
+          14,
+          12,
+          "world-data-2023",
+          "Country_world-data-2023_Fertility Rate"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466898288141974,
+        0.7466963373262194,
+        0.7487221425521942,
+        0.748717157078282,
+        0.7494102375518819,
+        0.7512339759041773,
+        0.7513895008566582,
+        0.7555541034003894
+      ],
+      "time_taken": 2.2346580028533936,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "customer_feedback_satisfaction.csv",
+      "Country_Dataset.csv"
+    ]
+  ]
+}

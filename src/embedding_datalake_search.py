@@ -14,7 +14,6 @@ def embedding_datalake_search(kitana_history: KitanaHistory, datalake: Datalake,
     filter_table = FilterByEmbeddings([])
     datalake_files = datalake.list_files()
 
-        
     # print(f"Files in datalake: {datalake_files}")
     filter_table.set_tables(datalake_files)
     

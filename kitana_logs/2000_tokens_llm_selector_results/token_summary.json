@@ -1,0 +1,87 @@
+{
+  "test_case_1": {
+    "prompt": 3182,
+    "completion": 176,
+    "total": 3358
+  },
+  "test_case_2": {
+    "prompt": 1930,
+    "completion": 187,
+    "total": 2117
+  },
+  "test_case_3": {
+    "prompt": 3372,
+    "completion": 173,
+    "total": 3545
+  },
+  "test_case_4": {
+    "prompt": 2255,
+    "completion": 142,
+    "total": 2397
+  },
+  "test_case_5": {
+    "prompt": 1372,
+    "completion": 152,
+    "total": 1524
+  },
+  "test_case_6": {
+    "prompt": 2231,
+    "completion": 216,
+    "total": 2447
+  },
+  "test_case_7": {
+    "prompt": 2838,
+    "completion": 136,
+    "total": 2974
+  },
+  "test_case_8": {
+    "prompt": 2760,
+    "completion": 188,
+    "total": 2948
+  },
+  "test_case_9": {
+    "prompt": 1965,
+    "completion": 123,
+    "total": 2088
+  },
+  "test_case_10": {
+    "prompt": 2440,
+    "completion": 143,
+    "total": 2583
+  },
+  "test_case_11": {
+    "prompt": 3215,
+    "completion": 130,
+    "total": 3345
+  },
+  "test_case_12": {
+    "prompt": 2263,
+    "completion": 134,
+    "total": 2397
+  },
+  "test_case_13": {
+    "prompt": 3391,
+    "completion": 138,
+    "total": 3529
+  },
+  "test_case_14": {
+    "prompt": 4252,
+    "completion": 309,
+    "total": 4561
+  },
+  "test_case_15": {
+    "prompt": 4790,
+    "completion": 105,
+    "total": 4895
+  },
+  "test_case_16": {
+    "prompt": 2698,
+    "completion": 126,
+    "total": 2824
+  },
+  "test_case_17": {
+    "prompt": 1877,
+    "completion": 175,
+    "total": 2052
+  }
+}

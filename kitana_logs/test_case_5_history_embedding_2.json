@@ -1,0 +1,42 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "housing_luxury_classification_incomplete",
+          "Address_housing_luxury_classification_incomplete_luxury_price_data"
+        ]
+      ],
+      "accuracy": [
+        0.24703182403083923,
+        0.34407123407691875
+      ],
+      "time_taken": 0.13182902336120605,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "housing_luxury_classification_incomplete",
+          "Address_housing_luxury_classification_incomplete_luxury_price_data"
+        ]
+      ],
+      "accuracy": [
+        0.24703182403083923,
+        0.34407123407691875
+      ],
+      "time_taken": 0.1328587532043457,
+      "num_iterations": 1
+    }
+  ],
+  "files_cleaned": [
+    [
+      "house_location_price.csv",
+      "house_land_location.csv"
+    ]
+  ]
+}

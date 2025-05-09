@@ -1,0 +1,195 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          1,
+          8,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Log GDP per capita"
+        ],
+        [
+          10,
+          9,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_cloud"
+        ],
+        [
+          3,
+          10,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Schooling"
+        ],
+        [
+          10,
+          11,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_humidity"
+        ],
+        [
+          1,
+          12,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Social support"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466898288141974,
+        0.7466963373262194,
+        0.7474096441477004,
+        0.7497872342043825,
+        0.7497932251095782,
+        0.7510844585449933,
+        0.7538994800085274,
+        0.7542522140091514
+      ],
+      "time_taken": 2.440213918685913,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          1,
+          8,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Log GDP per capita"
+        ],
+        [
+          10,
+          9,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_cloud"
+        ],
+        [
+          3,
+          10,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Schooling"
+        ],
+        [
+          10,
+          11,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_humidity"
+        ],
+        [
+          1,
+          12,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Social support"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466898288141974,
+        0.7466963373262194,
+        0.7474096441477004,
+        0.7497872342043825,
+        0.7497932251095782,
+        0.7510844585449933,
+        0.7538994800085274,
+        0.7542522140091514
+      ],
+      "time_taken": 2.341639995574951,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "hdi.csv"
+    ]
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          12,
+          1,
+          "population_by_country_2020",
+          "Country_population_by_country_2020_Population (2020)"
+        ],
+        [
+          9,
+          2,
+          "raw_data",
+          "Country_raw_data_population"
+        ],
+        [
+          15,
+          3,
+          "Final",
+          "Country_Final_Broadband Subscription"
+        ],
+        [
+          1,
+          4,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Freedom to make life choices"
+        ],
+        [
+          1,
+          5,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Perceptions of corruption"
+        ],
+        [
+          9,
+          6,
+          "raw_data",
+          "Country_raw_data_Unnamed: 13"
+        ],
+        [
+          3,
+          7,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ],
+        [
+          1,
+          8,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Freedom to make life choices"
+        ],
+        [
+          1,
+          9,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Healthy life expectancy"
+        ],
+        [
+          1,
+          10,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Logged GDP per capita"
+        ],
+        [
+          14,
+          11,
+          "country_wise_latest",
+          "Country_country_wise_latest_Deaths / 100 Cases"
+        ],
+        [
+          9,
+          12,
+          "raw_data",
+          "Country_raw_data_Unnamed: 12"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9490767291512623,
+        0.9490423598759299,
+        0.9504050234063701,
+        0.950891606568017,
+        0.9509256998346629,
+        0.9505280636246116,
+        0.9507459549372599,
+        0.9519563491701093,
+        0.9515772980115528,
+        0.9515566407056925,
+        0.9510889966470845,
+        0.9515796243442948
+      ],
+      "time_taken": 0.2829170227050781,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          12,
+          1,
+          "population_by_country_2020",
+          "Country_population_by_country_2020_Population (2020)"
+        ],
+        [
+          9,
+          2,
+          "raw_data",
+          "Country_raw_data_population"
+        ],
+        [
+          15,
+          3,
+          "Final",
+          "Country_Final_Broadband Subscription"
+        ],
+        [
+          1,
+          4,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Freedom to make life choices"
+        ],
+        [
+          1,
+          5,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Perceptions of corruption"
+        ],
+        [
+          9,
+          6,
+          "raw_data",
+          "Country_raw_data_Unnamed: 13"
+        ],
+        [
+          3,
+          7,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ],
+        [
+          1,
+          8,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Freedom to make life choices"
+        ],
+        [
+          1,
+          9,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Healthy life expectancy"
+        ],
+        [
+          1,
+          10,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Logged GDP per capita"
+        ],
+        [
+          14,
+          11,
+          "country_wise_latest",
+          "Country_country_wise_latest_Deaths / 100 Cases"
+        ],
+        [
+          9,
+          12,
+          "raw_data",
+          "Country_raw_data_Unnamed: 12"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9490767291512623,
+        0.9490423598759299,
+        0.9504050234063701,
+        0.950891606568017,
+        0.9509256998346629,
+        0.9505280636246116,
+        0.9507459549372599,
+        0.9519563491701093,
+        0.9515772980115528,
+        0.9515566407056925,
+        0.9510889966470845,
+        0.9515796243442948
+      ],
+      "time_taken": 0.29697608947753906,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "col_per_country_2024.csv",
+      "cost_of_living.csv"
+    ]
+  ]
+}

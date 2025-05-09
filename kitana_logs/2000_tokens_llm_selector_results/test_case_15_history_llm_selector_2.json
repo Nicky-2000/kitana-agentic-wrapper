@@ -1,0 +1,105 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.8389256340025945
+      ],
+      "time_taken": 0.009329080581665039,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          1,
+          1,
+          "Country_Dataset",
+          "country_Country_Dataset_gdpp"
+        ],
+        [
+          1,
+          2,
+          "Country_Dataset",
+          "country_Country_Dataset_life_expec"
+        ],
+        [
+          1,
+          3,
+          "Country_Dataset",
+          "country_Country_Dataset_child_mort"
+        ],
+        [
+          1,
+          4,
+          "Country_Dataset",
+          "country_Country_Dataset_health"
+        ],
+        [
+          1,
+          5,
+          "Country_Dataset",
+          "country_Country_Dataset_total_fer"
+        ],
+        [
+          1,
+          6,
+          "Country_Dataset",
+          "country_Country_Dataset_exports"
+        ],
+        [
+          0,
+          7,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          1,
+          8,
+          "Country_Dataset",
+          "country_Country_Dataset_inflation"
+        ],
+        [
+          1,
+          9,
+          "Country_Dataset",
+          "country_Country_Dataset_imports"
+        ],
+        [
+          1,
+          10,
+          "Country_Dataset",
+          "country_Country_Dataset_income"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.9330671002581689,
+        0.9327629502780261,
+        0.9325280740990333,
+        0.9319669234561236,
+        0.9323233956930067,
+        0.9319445409412098,
+        0.9316656440436075,
+        0.9312144041807741,
+        0.9305248322635684,
+        0.9300504868322045
+      ],
+      "time_taken": 0.10722780227661133,
+      "num_iterations": 10
+    }
+  ],
+  "files_cleaned": [
+    [
+      "Corruption_Perception_Data.csv",
+      "Country_Dataset.csv"
+    ]
+  ]
+}

@@ -1,0 +1,147 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Local Purchasing Power Index"
+        ],
+        [
+          0,
+          2,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Cost of Living Plus Rent Index"
+        ],
+        [
+          0,
+          3,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Rent Index"
+        ],
+        [
+          0,
+          4,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Cost of Living Index"
+        ],
+        [
+          0,
+          5,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Groceries Index"
+        ],
+        [
+          0,
+          6,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Rank"
+        ]
+      ],
+      "accuracy": [
+        0.3884134272452541,
+        0.4800182472273188,
+        0.4761327827005528,
+        0.47309966167573747,
+        0.4688183007258614,
+        0.4668692508684432,
+        0.4712791057456234
+      ],
+      "time_taken": 0.15999794006347656,
+      "num_iterations": 6
+    },
+    {
+      "augplan": [
+        [
+          3,
+          1,
+          "col_per_country_2024",
+          "country_col_per_country_2024_LocalPurchasingPower_idx"
+        ],
+        [
+          2,
+          2,
+          "crime-rate-by-country-2023",
+          "country_crime-rate-by-country-2023_crimeIndex"
+        ],
+        [
+          0,
+          3,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Restaurant Price Index"
+        ],
+        [
+          0,
+          4,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Cost of Living Index"
+        ],
+        [
+          0,
+          5,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Local Purchasing Power Index"
+        ],
+        [
+          3,
+          6,
+          "col_per_country_2024",
+          "country_col_per_country_2024_RestaurantPrice_idx"
+        ],
+        [
+          3,
+          7,
+          "col_per_country_2024",
+          "country_col_per_country_2024_CoL_plus_Rent_idx"
+        ],
+        [
+          0,
+          8,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Groceries Index"
+        ],
+        [
+          0,
+          9,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Cost of Living Plus Rent Index"
+        ],
+        [
+          0,
+          10,
+          "Cost_of_Living_Index_by_Country_2024",
+          "country_Cost_of_Living_Index_by_Country_2024_Rent Index"
+        ],
+        [
+          3,
+          11,
+          "col_per_country_2024",
+          "country_col_per_country_2024_Groceries_idx"
+        ]
+      ],
+      "accuracy": [
+        0.3884134272452541,
+        0.503691012746849,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ],
+      "time_taken": 0.1841130256652832,
+      "num_iterations": 11
+    }
+  ],
+  "files_cleaned": [
+    [
+      "crime-rate-by-country-2023.csv",
+      "col_per_country_2024.csv"
+    ]
+  ]
+}

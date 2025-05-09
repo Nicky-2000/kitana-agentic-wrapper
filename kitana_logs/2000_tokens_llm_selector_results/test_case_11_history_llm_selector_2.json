@@ -1,0 +1,119 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.22931452203665315,
+        0.23088436542232682
+      ],
+      "time_taken": 0.013401031494140625,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          1,
+          1,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_latitude"
+        ],
+        [
+          0,
+          2,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Purchasing_Power_idx"
+        ],
+        [
+          1,
+          3,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_air_quality_Carbon_Monoxide"
+        ],
+        [
+          2,
+          4,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          5,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Climate_idx"
+        ],
+        [
+          1,
+          6,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_air_quality_Ozone"
+        ],
+        [
+          1,
+          7,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          1,
+          8,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_feels_like_celsius"
+        ],
+        [
+          0,
+          9,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_TrafficCommuteTime_idx"
+        ],
+        [
+          0,
+          10,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Safety_idx"
+        ],
+        [
+          0,
+          11,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Pollution_idx"
+        ],
+        [
+          1,
+          12,
+          "GlobalWeatherRepository",
+          "country_GlobalWeatherRepository_air_quality_PM10"
+        ]
+      ],
+      "accuracy": [
+        0.22931452203665315,
+        0.4613376585873704,
+        0.4581936783986713,
+        0.49212032691405494,
+        0.4886517523334525,
+        0.5054347574912093,
+        0.5598064828495344,
+        0.5797138530761712,
+        0.5835760639259622,
+        0.5902426136846921,
+        0.6019586962070393,
+        0.6140078180478148,
+        0.6207102897471548
+      ],
+      "time_taken": 0.2055060863494873,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "qol_per_country_2024.csv",
+      "GlobalWeatherRepository.csv"
+    ]
+  ]
+}

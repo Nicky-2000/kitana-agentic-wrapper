@@ -5,6 +5,7 @@ import pandas as pd
 from src.language_model_interface import LanguageModelInterface, Config
 import json as json_package
 import numpy as np
+from src.token_observer import llm_token_observer
 
 
 def add_csv_to_table_name_if_missing(table):
@@ -15,10 +16,18 @@ def get_simple_table_description_from_col_names(table, cols, lm):
     table_description = lm.get_text_response(prompt_describe_table)
     return table_description
 
-def rank_all_tables(query_table, query_column, kitana_results, num_tables = 5, window_size = 10, datalake_folder = "data/datalake", buyer_folder = "data/test_case_1/buyer", seller_folder ="data/test_case_1/seller", filtered_tables = []):
+def rank_all_tables(query_table,
+                    query_column, 
+                    kitana_results, 
+                    num_tables = 5, 
+                    window_size = 10, 
+                    datalake_folder = "data/datalake", 
+                    buyer_folder = "data/test_case_1/buyer",
+                    seller_folder ="data/test_case_1/seller", 
+                    filtered_tables = [], 
+                    token_budget = None,
+                    ):
     
-
-
     assert num_tables < window_size, "num_tables must be smaller than window_size"
 
     full_table_list = []
@@ -67,6 +76,7 @@ def rank_all_tables(query_table, query_column, kitana_results, num_tables = 5, w
 
     c = 0 
     top_table_candidates = []
+    observer = llm_token_observer
     for i in range(0, len(full_table_list), window_size):
         c+= 1
         end_index = min(i+window_size, len(full_table_list))
@@ -82,6 +92,10 @@ def rank_all_tables(query_table, query_column, kitana_results, num_tables = 5, w
             top_descript = top_descript,
             bottom_descript = bottom_descript,
         )
+        total_tokens = observer.get_overall_totals()
+        if total_tokens['total'] > token_budget:
+            print(f"Token budget exceeded: {total_tokens} > {token_budget}")
+            break
 
     #     print(f"Eval {c}: {top_table_candidates}")
 

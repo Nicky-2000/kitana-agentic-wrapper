@@ -1,0 +1,133 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "corruption",
+          "country_corruption_annual_income"
+        ],
+        [
+          0,
+          2,
+          "corruption",
+          "country_corruption_corruption_index"
+        ],
+        [
+          1,
+          3,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.1615260915052461,
+        0.16506419100989977,
+        0.16766183941088342,
+        0.16686075743098372
+      ],
+      "time_taken": 0.03745698928833008,
+      "num_iterations": 3
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "corruption",
+          "country_corruption_corruption_index"
+        ],
+        [
+          0,
+          2,
+          "corruption",
+          "country_corruption_annual_income"
+        ],
+        [
+          2,
+          3,
+          "owid-energy-data",
+          "country_owid-energy-data_coal_electricity"
+        ],
+        [
+          2,
+          4,
+          "owid-energy-data",
+          "country_owid-energy-data_carbon_intensity_elec"
+        ],
+        [
+          2,
+          5,
+          "owid-energy-data",
+          "country_owid-energy-data_coal_share_elec"
+        ],
+        [
+          2,
+          6,
+          "owid-energy-data",
+          "country_owid-energy-data_other_renewables_share_elec"
+        ],
+        [
+          2,
+          7,
+          "owid-energy-data",
+          "country_owid-energy-data_wind_electricity"
+        ],
+        [
+          1,
+          8,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          2,
+          9,
+          "owid-energy-data",
+          "country_owid-energy-data_nuclear_share_elec"
+        ],
+        [
+          2,
+          10,
+          "owid-energy-data",
+          "country_owid-energy-data_fossil_share_elec"
+        ],
+        [
+          2,
+          11,
+          "owid-energy-data",
+          "country_owid-energy-data_gas_electricity"
+        ],
+        [
+          2,
+          12,
+          "owid-energy-data",
+          "country_owid-energy-data_solar_electricity"
+        ]
+      ],
+      "accuracy": [
+        0.1615260915052461,
+        0.1580714368165126,
+        0.16766183941088342,
+        0.8325966309565526,
+        0.8341563913904634,
+        0.8370345721708572,
+        0.8362601877466502,
+        0.8455255466363668,
+        0.8502352250481293,
+        0.849400668517256,
+        0.8493016571567922,
+        0.881937199374005,
+        0.8818729244260523
+      ],
+      "time_taken": 0.32048487663269043,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "global_energy_consumption.csv",
+      "owid-energy-data.csv"
+    ]
+  ]
+}

@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          10,
+          1,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          3,
+          2,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_ HIV/AIDS"
+        ],
+        [
+          5,
+          3,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ],
+        [
+          12,
+          4,
+          "population_by_country_2020",
+          "Country_population_by_country_2020_Land Area (Km\u00b2)"
+        ],
+        [
+          16,
+          5,
+          "fifa_ranking",
+          "Country_fifa_ranking_previous_points"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_temperature_celsius"
+        ],
+        [
+          3,
+          7,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          13,
+          8,
+          "world-data-2023",
+          "Country_world-data-2023_Birth Rate"
+        ],
+        [
+          13,
+          9,
+          "world-data-2023",
+          "Country_world-data-2023_CPI"
+        ],
+        [
+          10,
+          10,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_gust_mph"
+        ],
+        [
+          10,
+          11,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_cloud"
+        ],
+        [
+          3,
+          12,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9477551278695305,
+        0.9475612525272772,
+        0.9565585744258733,
+        0.9573582702517461,
+        0.9582423012171062,
+        0.9580288679960084,
+        0.9580302924809945,
+        0.958419726247082,
+        0.9580898453810802,
+        0.9577420140014073,
+        0.9578156302906423,
+        0.9574110939271089
+      ],
+      "time_taken": 0.24515390396118164,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          10,
+          1,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          3,
+          2,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_ HIV/AIDS"
+        ],
+        [
+          5,
+          3,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ],
+        [
+          12,
+          4,
+          "population_by_country_2020",
+          "Country_population_by_country_2020_Land Area (Km\u00b2)"
+        ],
+        [
+          16,
+          5,
+          "fifa_ranking",
+          "Country_fifa_ranking_previous_points"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_temperature_celsius"
+        ],
+        [
+          3,
+          7,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          13,
+          8,
+          "world-data-2023",
+          "Country_world-data-2023_Birth Rate"
+        ],
+        [
+          13,
+          9,
+          "world-data-2023",
+          "Country_world-data-2023_CPI"
+        ],
+        [
+          10,
+          10,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_gust_mph"
+        ],
+        [
+          10,
+          11,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_cloud"
+        ],
+        [
+          3,
+          12,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9477551278695305,
+        0.9475612525272772,
+        0.9565585744258733,
+        0.9573582702517461,
+        0.9582423012171062,
+        0.9580288679960084,
+        0.9580302924809945,
+        0.958419726247082,
+        0.9580898453810802,
+        0.9577420140014073,
+        0.9578156302906423,
+        0.9574110939271089
+      ],
+      "time_taken": 0.27496790885925293,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "cost_of_living.csv",
+      "col_per_country_2024.csv"
+    ]
+  ]
+}

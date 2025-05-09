@@ -1,0 +1,91 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.8068947381139581,
+        0.8095696942383365
+      ],
+      "time_taken": 0.01276087760925293,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "cost_of_living",
+          "country_cost_of_living_monthly_income"
+        ],
+        [
+          0,
+          2,
+          "cost_of_living",
+          "country_cost_of_living_cost_index"
+        ],
+        [
+          0,
+          3,
+          "cost_of_living",
+          "country_cost_of_living_purchasing_power_index"
+        ],
+        [
+          1,
+          4,
+          "country_stats",
+          "country_country_stats_carbon_dioxide_index"
+        ],
+        [
+          2,
+          5,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          1,
+          6,
+          "country_stats",
+          "country_country_stats_schooling_index"
+        ],
+        [
+          1,
+          7,
+          "country_stats",
+          "country_country_stats_safety_perception"
+        ],
+        [
+          1,
+          8,
+          "country_stats",
+          "country_country_stats_health_index_quality"
+        ]
+      ],
+      "accuracy": [
+        0.8068947381139581,
+        0.8291349722370732,
+        0.8299743789104838,
+        0.8306599124162442,
+        0.8306547644537274,
+        0.8316122790327684,
+        0.8304305048286801,
+        0.8296918936944996,
+        0.8304512878858366
+      ],
+      "time_taken": 0.11284184455871582,
+      "num_iterations": 8
+    }
+  ],
+  "files_cleaned": [
+    [
+      "country_stats.csv",
+      "cost_of_living.csv"
+    ]
+  ]
+}

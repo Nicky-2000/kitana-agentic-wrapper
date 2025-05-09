@@ -1,0 +1,111 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466881226750308,
+        0.7466963373262194
+      ],
+      "time_taken": 1.097533941268921,
+      "num_iterations": 6
+    },
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Access to clean fuels for cooking"
+        ],
+        [
+          13,
+          2,
+          "world-data-2023",
+          "Country_world-data-2023_Life expectancy"
+        ],
+        [
+          3,
+          3,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Income composition of resources"
+        ],
+        [
+          3,
+          4,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Life expectancy "
+        ],
+        [
+          10,
+          5,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_mb"
+        ],
+        [
+          10,
+          6,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ]
+      ],
+      "accuracy": [
+        0.6030464851789368,
+        0.7157212324714408,
+        0.7172165332423521,
+        0.7402196846751503,
+        0.7461855845978759,
+        0.7466881226750308,
+        0.7466963373262194
+      ],
+      "time_taken": 0.8388180732727051,
+      "num_iterations": 6
+    }
+  ],
+  "files_cleaned": [
+    [
+      "Country_Dataset.csv"
+    ]
+  ]
+}

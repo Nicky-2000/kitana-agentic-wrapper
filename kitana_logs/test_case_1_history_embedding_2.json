@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          14,
+          1,
+          "country_wise_latest",
+          "Country_country_wise_latest_Recovered"
+        ],
+        [
+          7,
+          2,
+          "who_suicide_statistics",
+          "year_who_suicide_statistics_population"
+        ],
+        [
+          9,
+          3,
+          "raw_data",
+          "Country_raw_data_total_deaths"
+        ],
+        [
+          1,
+          4,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Social support"
+        ],
+        [
+          1,
+          5,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Log GDP per capita"
+        ],
+        [
+          1,
+          6,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_lowerwhisker"
+        ],
+        [
+          1,
+          7,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Ladder score"
+        ],
+        [
+          6,
+          8,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Cost of Living Index"
+        ],
+        [
+          6,
+          9,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Restaurant Price Index"
+        ],
+        [
+          6,
+          10,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Cost of Living Plus Rent Index"
+        ],
+        [
+          6,
+          11,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Rent Index"
+        ],
+        [
+          10,
+          12,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_wind_degree"
+        ]
+      ],
+      "accuracy": [
+        0.4706238869974221,
+        0.49955018855560207,
+        0.49954772006367654,
+        0.5171954818926353,
+        0.5172811207026695,
+        0.5175880019882526,
+        0.5176318310841721,
+        0.5185546458937547,
+        0.5199971153616396,
+        0.5207242980567026,
+        0.5207704174122245,
+        0.5207558638613514,
+        0.5211102103039931
+      ],
+      "time_taken": 2.314349889755249,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          14,
+          1,
+          "country_wise_latest",
+          "Country_country_wise_latest_Recovered"
+        ],
+        [
+          7,
+          2,
+          "who_suicide_statistics",
+          "year_who_suicide_statistics_population"
+        ],
+        [
+          9,
+          3,
+          "raw_data",
+          "Country_raw_data_total_deaths"
+        ],
+        [
+          1,
+          4,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Social support"
+        ],
+        [
+          1,
+          5,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Log GDP per capita"
+        ],
+        [
+          1,
+          6,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_lowerwhisker"
+        ],
+        [
+          1,
+          7,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Ladder score"
+        ],
+        [
+          6,
+          8,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Cost of Living Index"
+        ],
+        [
+          6,
+          9,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Restaurant Price Index"
+        ],
+        [
+          6,
+          10,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Cost of Living Plus Rent Index"
+        ],
+        [
+          6,
+          11,
+          "Cost_of_Living_Index_by_Country_2024",
+          "Country_Cost_of_Living_Index_by_Country_2024_Rent Index"
+        ],
+        [
+          11,
+          12,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from nuclear (TWh)"
+        ]
+      ],
+      "accuracy": [
+        0.4706238869974221,
+        0.49955018855560207,
+        0.49954772006367654,
+        0.5171954818926353,
+        0.5172811207026695,
+        0.5175880019882526,
+        0.5176318310841721,
+        0.5185546458937547,
+        0.5199971153616396,
+        0.5207242980567026,
+        0.5207704174122245,
+        0.5207558638613514,
+        0.5238253394971468
+      ],
+      "time_taken": 1.9151601791381836,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "Suicide rate.csv",
+      "who_suicide_statistics.csv"
+    ]
+  ]
+}

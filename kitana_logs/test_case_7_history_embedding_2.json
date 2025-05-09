@@ -1,0 +1,105 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.7213856706561854,
+        0.7196304709958845
+      ],
+      "time_taken": 0.014334917068481445,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Climate_idx"
+        ],
+        [
+          0,
+          2,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_TrafficCommuteTime_idx"
+        ],
+        [
+          0,
+          3,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Pollution_idx"
+        ],
+        [
+          0,
+          4,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Healthcare_idx"
+        ],
+        [
+          0,
+          5,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_CoL_idx"
+        ],
+        [
+          1,
+          6,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          7,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_QoL_idx"
+        ],
+        [
+          0,
+          8,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_PropertyPrice_to_Income_Ratio"
+        ],
+        [
+          0,
+          9,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Safety_idx"
+        ],
+        [
+          0,
+          10,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Purchasing_Power_idx"
+        ]
+      ],
+      "accuracy": [
+        0.7213856706561854,
+        0.7279635424641462,
+        0.732467876173895,
+        0.731823240621525,
+        0.7307768869977472,
+        0.7289499052097418,
+        0.7270456022999234,
+        0.7300923336197807,
+        0.7387470628452768,
+        0.7365956958259092,
+        0.734482641108932
+      ],
+      "time_taken": 0.2339310646057129,
+      "num_iterations": 10
+    }
+  ],
+  "files_cleaned": [
+    [
+      "customer_feedback_satisfaction.csv",
+      "qol_per_country_2024.csv"
+    ]
+  ]
+}

@@ -1,0 +1,42 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "corruption",
+          "country_corruption_annual_income"
+        ]
+      ],
+      "accuracy": [
+        0.1615260915052461,
+        0.16506419100989977
+      ],
+      "time_taken": 0.0120849609375,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "corruption",
+          "country_corruption_annual_income"
+        ]
+      ],
+      "accuracy": [
+        0.1615260915052461,
+        0.16506419100989977
+      ],
+      "time_taken": 0.014984846115112305,
+      "num_iterations": 1
+    }
+  ],
+  "files_cleaned": [
+    [
+      "Petrol Dataset June 20 2022.csv",
+      "global_energy_consumption.csv"
+    ]
+  ]
+}

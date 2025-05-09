@@ -2,6 +2,7 @@ from src.budget_handler.filter_by_budget import (
     TableCostMetadata,
     filter_tables_by_budget,
 )
+from rich import print  # Fancy output for terminal
 from src.budget_handler.token_count import estimate_token_count
 from src.embedding_datalake_search import embedding_datalake_search
 from src.filterTables import FilterByEmbeddings, FilterTables
@@ -34,10 +35,11 @@ def llm_enrich_search_func(
     top_selections, vec_db = embedding_datalake_search(
         kitana_results, datalake, test_case, top_k=20, return_vec_db=True
     )
-
+    print(f"[bold]🔍 Found {len(top_selections)} tables in the data lake...[/bold]")
     if token_budget is not None:
         # Apply the budget filtering to top selections
         # This will filter down the tables in top selections based on the budget
+        print(f"[bold]🔍 Filtering tables by budget... strategy: {budget_filter}, token_budget: {token_budget}[/bold]")
         top_selections = apply_budget_filtering(
             test_case,
             top_selections,
@@ -46,6 +48,7 @@ def llm_enrich_search_func(
             value_function,
             vec_db,
         )
+        print(f"[bold]🔍 Filtered tables by budget. Remaining tables: {len(top_selections)}[/bold]")
 
     llm_filter_table = FilterTables(top_selections)
     top_llm_selections_dict = llm_filter_table.filterByQuery(
@@ -82,7 +85,7 @@ def apply_budget_filtering(test_case, top_selections, token_budget, budget_filte
         num_tokens = estimate_token_count(total_prompt)
         
         # Calculate a "value" for the table based on the value function
-        value = value_function(table=table, vec_db=vec_db, test_case=test_case)
+        value = value_function(table, vec_db, test_case)
         
         table_cost = TableCostMetadata(
             name=table,
@@ -93,8 +96,8 @@ def apply_budget_filtering(test_case, top_selections, token_budget, budget_filte
 
     tables_filtered_by_budget = filter_tables_by_budget(
         tables=tokens_required_per_table_estimate,
-        token_budget=token_budget,
-        budget_filter=budget_filter,  # Can be "greedy", "random", or "value_per_token"
+        max_tokens=token_budget,
+        strategy=budget_filter,  # Can be "greedy", "random", or "value_per_token"
     )
 
     return tables_filtered_by_budget

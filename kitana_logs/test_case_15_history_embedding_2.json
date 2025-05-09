@@ -1,0 +1,49 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.8389256340025945
+      ],
+      "time_taken": 0.009382963180541992,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          1,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          2,
+          "corruption",
+          "country_corruption_annual_income"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.8389256340025945,
+        1.0
+      ],
+      "time_taken": 0.02521491050720215,
+      "num_iterations": 2
+    }
+  ],
+  "files_cleaned": [
+    [
+      "corruption.csv",
+      "Corruption_Perception_Data.csv"
+    ]
+  ]
+}

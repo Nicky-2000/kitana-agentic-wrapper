@@ -1,0 +1,35 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "corruption",
+          "country_corruption_annual_income"
+        ],
+        [
+          1,
+          2,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          3,
+          "corruption",
+          "country_corruption_corruption_index"
+        ]
+      ],
+      "accuracy": [
+        0.1615260915052461,
+        0.16506419100989977,
+        0.16664397276932197,
+        0.16686075743098372
+      ],
+      "time_taken": 0.06010699272155762,
+      "num_iterations": 3
+    }
+  ],
+  "files_cleaned": []
+}

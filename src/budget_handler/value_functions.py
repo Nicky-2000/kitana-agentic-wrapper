@@ -13,11 +13,8 @@
     # 4. We could do some clustering of sorts and select from clusters that were good for the query. 
     
 from pathlib import Path
-from typing import list
 from src.kitana_history.query_history import KitanaHistory
 from src.testcase_manager import Testcase
-from src.budget_handler.filter_by_budget import TableCostMetadata
-from src.embedding_db import EmbeddingDB
 import numpy as np
 
 from src.vectorDB import VectorDB

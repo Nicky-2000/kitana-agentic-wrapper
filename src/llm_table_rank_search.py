@@ -7,7 +7,7 @@ from pathlib import Path
 
 
 
-def llm_selector_search_func(kitana_results:KitanaHistory, datalake, test_case, top_k:int = 5):
+def llm_selector_search_func(kitana_results:KitanaHistory, datalake, test_case, top_k:int = 5, token_budget:int = 10000):
     """
     Reads in the tables in the data lake
     For a given query table and query column, return to
@@ -23,15 +23,18 @@ def llm_selector_search_func(kitana_results:KitanaHistory, datalake, test_case, 
     # print("##### KITANA RESULTS ########")
     # print(kitana_results.to_dict()["kitana_results"][0])
     # print("##### END RESULTS ########")
-    llm_selections = rank_all_tables(query_table, query_column, 
-                    #kitana_results.to_dict()["kitana_results"][0], #rip 
-                    kitana_results,
-                    num_tables = top_k, 
-                    window_size = 10, 
-                    datalake_folder = "data/datalake", 
-                    buyer_folder = query_location, 
-                    seller_folder = test_case.seller_original_folder_path, 
-                    filtered_tables = top_selections
+    llm_selections = rank_all_tables(
+                        query_table,
+                        query_column, 
+                        #kitana_results.to_dict()["kitana_results"][0], #rip 
+                        kitana_results,
+                        num_tables = top_k, 
+                        window_size = 10, 
+                        datalake_folder = "data/datalake", 
+                        buyer_folder = query_location, 
+                        seller_folder = test_case.seller_original_folder_path, 
+                        filtered_tables = top_selections,
+                        token_budget = token_budget
                     )
     
     return llm_selections

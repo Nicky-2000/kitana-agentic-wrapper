@@ -14,6 +14,7 @@ import random
 class TableCostMetadata:
     name: str
     tokens: int
+    value: float
     
 
 def filter_tables_by_budget(

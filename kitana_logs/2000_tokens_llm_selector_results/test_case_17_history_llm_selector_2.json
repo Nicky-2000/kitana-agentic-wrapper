@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          1,
+          1,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_nbr_anaesthesiologists"
+        ],
+        [
+          1,
+          2,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_school_shutdown_50case"
+        ],
+        [
+          1,
+          3,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_Nutritional deficiencies (%)"
+        ],
+        [
+          1,
+          4,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_Respiratory diseases (%)"
+        ],
+        [
+          1,
+          5,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_Diabetes, blood, & endocrine diseases (%)"
+        ],
+        [
+          1,
+          6,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_animal_products"
+        ],
+        [
+          1,
+          7,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_animal_fats"
+        ],
+        [
+          1,
+          8,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_hospital_beds_per10k"
+        ],
+        [
+          1,
+          9,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_starchy_roots"
+        ],
+        [
+          1,
+          10,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_FF_DayOfYear"
+        ],
+        [
+          1,
+          11,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_population growth rate"
+        ],
+        [
+          1,
+          12,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_case50_DayOfYear"
+        ]
+      ],
+      "accuracy": [
+        0.29343561118697514,
+        0.6065681440070856,
+        0.6213553772234495,
+        0.6724686876220566,
+        0.702296650508365,
+        0.6988660523132209,
+        0.6952017233642178,
+        0.7010706224118186,
+        0.6977699927646865,
+        0.7142711802663044,
+        0.7201919492661584,
+        0.722169624353001,
+        0.7348400874968927
+      ],
+      "time_taken": 0.22739362716674805,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          3,
+          1,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_nbr_anaesthesiologists"
+        ],
+        [
+          3,
+          2,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_school_shutdown_50case"
+        ],
+        [
+          3,
+          3,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_offals"
+        ],
+        [
+          3,
+          4,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_Nutritional deficiencies (%)"
+        ],
+        [
+          4,
+          5,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          6,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_TrafficCommuteTime_idx"
+        ],
+        [
+          0,
+          7,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Pollution_idx"
+        ],
+        [
+          3,
+          8,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_starchy_roots"
+        ],
+        [
+          0,
+          9,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_QoL_idx"
+        ],
+        [
+          3,
+          10,
+          "country_health_indicators_v3",
+          "country_country_health_indicators_v3_animal_fats"
+        ],
+        [
+          0,
+          11,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Safety_idx"
+        ],
+        [
+          0,
+          12,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Climate_idx"
+        ]
+      ],
+      "accuracy": [
+        0.29343561118697514,
+        0.6065681440070856,
+        0.6213553772234495,
+        0.6371475627542543,
+        0.6869068981447579,
+        0.6938947116588075,
+        0.6957456363184424,
+        0.6956195834549312,
+        0.705642439990546,
+        0.7021460765582224,
+        0.7174824517578025,
+        0.7150717530352202,
+        0.7118063897940541
+      ],
+      "time_taken": 0.2756459712982178,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "global air pollution dataset.csv",
+      "qol_per_country_2024.csv"
+    ]
+  ]
+}

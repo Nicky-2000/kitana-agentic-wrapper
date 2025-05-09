@@ -1,0 +1,49 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.8496454837967721
+      ],
+      "time_taken": 0.009720087051391602,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "country_crime_data",
+          "country_country_crime_data_crimeIndicator"
+        ],
+        [
+          1,
+          2,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.8388023972890526,
+        0.8503344961081767,
+        0.8526613209847744
+      ],
+      "time_taken": 0.019260883331298828,
+      "num_iterations": 2
+    }
+  ],
+  "files_cleaned": [
+    [
+      "Corruption_Perception_Data.csv",
+      "country_crime_data.csv"
+    ]
+  ]
+}

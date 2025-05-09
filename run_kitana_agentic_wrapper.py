@@ -1,18 +1,19 @@
 import shutil
 import sys
 from pathlib import Path
+from rich import print  # Fancy output for terminal
 import os
-from src.kitana_history.query_history import Augplan, KitanaResults, KitanaHistory
+from src.kitana_history.query_history import KitanaResults, KitanaHistory
 from src.datalake.load_datalake import load_in_datalake
 from src.embedding_datalake_search import embedding_datalake_search
 from src.llm_enrich_search import llm_enrich_search_func
 from src.llm_table_rank_search import llm_selector_search_func
-from src.oracle_datalake_search import oracle_datalake_search
-from src.MCTS_datalake_search import MCTS_datalake_search
 from src.datalake.Datalake import DataLake
 from src.testcase_manager.Testcase import TestCase
 from src.utils import get_file_count
 from src.token_observer import llm_token_observer
+from test_cases import test_cases
+import json
 
 # This is needed if you don't have the vscode settings "python.autoComplete.extraPaths" set to "kitana-e2e"
 sys.path.insert(0, str(Path(__file__).resolve().parent / "kitana-e2e"))
@@ -87,6 +88,25 @@ def clean_data_folder(folder_path: str):
         file_path = os.path.join(folder_path, filename)
         if os.path.isfile(file_path):
             os.remove(file_path)
+            
+
+def save_token_usage_summary(token_usage_summary: dict, token_summary_path: str = "kitana_logs/token_summary.json"):
+    # 1. Load existing token log (if any)
+    if os.path.exists(token_summary_path):
+        with open(token_summary_path, "r") as f:
+            existing_summary = json.load(f)
+    else:
+        existing_summary = {}
+
+    # 2. Merge with current run
+    existing_summary.update(token_usage_summary)
+
+    # 3. Save the updated log
+    with open(token_summary_path, "w") as f:
+        json.dump(existing_summary, f, indent=2)
+
+    print(f"[bold green]✅ Saved updated token summary to:[/bold green] {token_summary_path}")
+
 
 
 if __name__ == "__main__":
@@ -107,48 +127,21 @@ if __name__ == "__main__":
     # 3. Run the experiment again with the new data
     # 4. Repeat until we get the results we want
 
-    # Pseudo code:
-
-    test_cases = [
-        # TestCase.from_name(
-        #     "test_case_1", "master.csv", "suicides_no", [["Country"], ["year"]]
-        # ),
-        # TestCase.from_name(
-        #     "test_case_2",
-        #     "raw_data.csv",
-        #     "human_development_index",
-        #     [["Country"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_3",
-        #     "Cost_of_Living_Index_by_Country_2024.csv",
-        #     "Groceries Index",
-        #     [["Country"]],
-        # ),
-        TestCase.from_name(
-            "test_case_4",
-            "housing_geo_data.csv",
-            "median_house_value",
-            [["latitude"]],
-        ),
-        # TestCase.from_name(
-        #     "test_case_5",
-        #     "property_details.csv",
-        #     "Price",
-        #     [["Address"]],
-        # ),
-        # TestCase.from_name(
-        #     "test_case_6",
-        #     "wfp_market_food_prices.csv",
-        #     "mp_price",
-        #     [["Country"]],
-        # ),
-    ]
-    
-    method = "llm_enrich" #emb
+    method = "embedding" #emb
     top_k_param = 2
-
-    for test_case in test_cases:
+    token_budget = 2000
+    token_usage_summary = {}
+    token_summary_path = "kitana_logs/token_summary.json"
+    
+    for test_case_dic in test_cases:
+        test_case = TestCase.from_name(name=test_case_dic["test_name"],
+                                      master_csv_file=test_case_dic["table"],
+                                      target_feature=test_case_dic["target_col"],
+                                      join_keys=test_case_dic["join_keys"])
+        
+        print("\n" + "=" * 80)
+        print(f"[bold cyan]🚀 Running Test Case: [green]{test_case.name}[/green][/bold cyan]")
+        print("=" * 80)
         
         test_case.prepare_augmented_folder()
         datalake = DataLake(datalake_folder="data/datalake")
@@ -156,6 +149,7 @@ if __name__ == "__main__":
         kitana_history = KitanaHistory()
 
         # Step 1: Run Kitana (Initial Run with original data)
+        print("[bold]🧪 Step 1: Running Kitana baseline experiment...[/bold]")
         kitana_results = run_kitana(
             seller_data_folder_path=test_case.seller_augmented_folder_path,
             buyer_csv_path=test_case.buyer_csv_path,
@@ -168,6 +162,8 @@ if __name__ == "__main__":
         try:
             for i in range(1):
                 # Step 2: Use results to search the "datalake"
+                print(f"[bold]🔍 Step 2: Searching Datalake using method: [yellow]{method}[/yellow][/bold]")
+
                 # This is where our methods come into play
 
                 # Examples:
@@ -176,24 +172,32 @@ if __name__ == "__main__":
                                                           datalake,
                                                           test_case, 
                                                           top_k=top_k_param,
-                                                          token_budget=10000, 
+                                                          token_budget=token_budget, 
                                                           budget_filter="greedy")
                 elif method == "llm_selector":
-                    files_to_use = llm_selector_search_func(kitana_history, datalake, test_case, top_k=top_k_param)
+                    files_to_use = llm_selector_search_func(kitana_history, 
+                                                            datalake, 
+                                                            test_case,
+                                                            top_k=top_k_param,
+                                                            token_budget=token_budget)
                 else: 
                     files_to_use = embedding_datalake_search(kitana_history, datalake, test_case, top_k=top_k_param)
                     method = "embedding"
 
-                print(f"Adding Files in datalake: {files_to_use}")
+                print(f"[bold green]📂 Files selected from datalake:[/bold green] {files_to_use}")
                 kitana_history.files_cleaned.append(files_to_use)
 
                 # Step 3: Copy the files to a folder where kitana can access it
+                print("[bold]📥 Step 3: Copying files into test case folder...[/bold]")
+
                 datalake.copy_files(
                     files=files_to_use,
                     dest_folder=test_case.seller_augmented_folder_path,
                 )
                 
                 # Step 4: Run the experiment again with the new data (Repeat)
+                print("[bold]⚙️ Step 4: Re-running Kitana with new data...[/bold]")
+
                 new_kitana_results = run_kitana(
                     seller_data_folder_path=test_case.seller_augmented_folder_path,
                     buyer_csv_path=test_case.buyer_csv_path,
@@ -202,19 +206,25 @@ if __name__ == "__main__":
                 )
                 kitana_history.kitana_results.append(new_kitana_results)
         except Exception as e:
-            print(f"Test case {test_case.name} failed")
-            print(f"An error occurred during execption: {e}. Don't Ignore!")
+            print(f"[bold red]❌ Test case {test_case.name} failed[/bold red]")
+            print(f"[bold red]🛑 Error:[/bold red] {e}")
         finally:
             clean_data_folder(test_case.seller_augmented_folder_path)
-            print(f"Cleaned up augmented folder: {test_case.seller_augmented_folder_path}")
+            print(f"[bold]🧹 Cleaned up folder:[/bold] {test_case.seller_augmented_folder_path}")
             
             # ✨ Save history at the end!
             history_save_path = f"kitana_logs/{test_case.name}_history_{method}_{top_k_param}.json"
             os.makedirs("kitana_logs", exist_ok=True)
             kitana_history.save(history_save_path)
-            print(f"[INFO] Saved history to {history_save_path}")
+            print(f"[bold blue]🧾 Saved history to:[/bold blue] {history_save_path}")
 
         # Print the overall token counts
-        print("Overall Token Counts:")
-        print(llm_token_observer.get_overall_totals())
+        print("[bold magenta]📊 Token Usage Summary:[/bold magenta]")
+        token_totals = llm_token_observer.get_overall_totals()
+        print(token_totals)
+        token_usage_summary[test_case.name] = token_totals
         llm_token_observer.reset()
+    
+    print(f"[bold magenta]📊 Saving token usuage data to file: {token_summary_path}:[/bold magenta]")
+    save_token_usage_summary(token_usage_summary, token_summary_path)
+    

@@ -1,0 +1,196 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from renewables (TWh)"
+        ],
+        [
+          10,
+          2,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_PM2.5"
+        ],
+        [
+          5,
+          3,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ],
+        [
+          10,
+          4,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          16,
+          5,
+          "fifa_ranking",
+          "Country_fifa_ranking_rank"
+        ],
+        [
+          11,
+          6,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from nuclear (TWh)"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          10,
+          8,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          9,
+          9,
+          "raw_data",
+          "Country_raw_data_total_deaths"
+        ],
+        [
+          3,
+          10,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ],
+        [
+          1,
+          11,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Freedom to make life choices"
+        ],
+        [
+          1,
+          12,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Social support"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9501062050194764,
+        0.9497951929226185,
+        0.9576381151178571,
+        0.9581992641510085,
+        0.9585937689363377,
+        0.958579354424558,
+        0.9582013128178705,
+        0.9586978205465866,
+        0.9589233775956928,
+        0.9585501413532093,
+        0.9581574505119304,
+        0.9580202494333312
+      ],
+      "time_taken": 0.3256697654724121,
+      "num_iterations": 12
+    },
+    {
+      "augplan": [
+        [
+          11,
+          1,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from renewables (TWh)"
+        ],
+        [
+          10,
+          2,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_PM2.5"
+        ],
+        [
+          5,
+          3,
+          "global air pollution dataset",
+          "Country_global air pollution dataset_Ozone AQI Value"
+        ],
+        [
+          10,
+          4,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_air_quality_Nitrogen_dioxide"
+        ],
+        [
+          16,
+          5,
+          "fifa_ranking",
+          "Country_fifa_ranking_rank"
+        ],
+        [
+          11,
+          6,
+          "global-data-on-sustainable-energy (1)",
+          "Country_global-data-on-sustainable-energy (1)_Electricity from nuclear (TWh)"
+        ],
+        [
+          10,
+          7,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_last_updated_epoch"
+        ],
+        [
+          10,
+          8,
+          "GlobalWeatherRepository",
+          "Country_GlobalWeatherRepository_pressure_in"
+        ],
+        [
+          9,
+          9,
+          "raw_data",
+          "Country_raw_data_total_deaths"
+        ],
+        [
+          3,
+          10,
+          "Life Expectancy Data",
+          "Country_Life Expectancy Data_Diphtheria "
+        ],
+        [
+          1,
+          11,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Explained by: Freedom to make life choices"
+        ],
+        [
+          1,
+          12,
+          "world-happiness-report-2021",
+          "Country_world-happiness-report-2021_Social support"
+        ]
+      ],
+      "accuracy": [
+        0.9481950272947166,
+        0.9501062050194764,
+        0.9497951929226185,
+        0.9576381151178571,
+        0.9581992641510085,
+        0.9585937689363377,
+        0.958579354424558,
+        0.9582013128178705,
+        0.9586978205465866,
+        0.9589233775956928,
+        0.9585501413532093,
+        0.9581574505119304,
+        0.9580202494333312
+      ],
+      "time_taken": 0.29218578338623047,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "col_per_country_2024.csv",
+      "cost_of_living.csv"
+    ]
+  ]
+}

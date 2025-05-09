@@ -1,0 +1,119 @@
+{
+  "kitana_results": [
+    {
+      "augplan": [
+        [
+          0,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ]
+      ],
+      "accuracy": [
+        0.4737320305688648,
+        0.48329784437481604
+      ],
+      "time_taken": 0.012409210205078125,
+      "num_iterations": 1
+    },
+    {
+      "augplan": [
+        [
+          2,
+          1,
+          "schooling_index_by_country",
+          "country_schooling_index_by_country_schooling_index"
+        ],
+        [
+          0,
+          2,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Pollution_idx"
+        ],
+        [
+          1,
+          3,
+          "country_stats",
+          "country_country_stats_health_index_quality"
+        ],
+        [
+          0,
+          4,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Climate_idx"
+        ],
+        [
+          0,
+          5,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_PropertyPrice_to_Income_Ratio"
+        ],
+        [
+          0,
+          6,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Purchasing_Power_idx"
+        ],
+        [
+          0,
+          7,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_TrafficCommuteTime_idx"
+        ],
+        [
+          0,
+          8,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_CoL_idx"
+        ],
+        [
+          0,
+          9,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_Safety_idx"
+        ],
+        [
+          1,
+          10,
+          "country_stats",
+          "country_country_stats_schooling_index"
+        ],
+        [
+          1,
+          11,
+          "country_stats",
+          "country_country_stats_carbon_dioxide_index"
+        ],
+        [
+          0,
+          12,
+          "qol_per_country_2024",
+          "country_qol_per_country_2024_QoL_idx"
+        ]
+      ],
+      "accuracy": [
+        0.4737320305688648,
+        0.48329784437481604,
+        0.49151086770323615,
+        0.48989824654407055,
+        0.49499268153685294,
+        0.4933299553514615,
+        0.498153713521984,
+        0.49522359684563966,
+        0.49109613452610457,
+        0.4882834004077422,
+        0.4854093653710396,
+        0.48109074958926135,
+        0.4773070519094792
+      ],
+      "time_taken": 0.33460307121276855,
+      "num_iterations": 12
+    }
+  ],
+  "files_cleaned": [
+    [
+      "qol_per_country_2024.csv",
+      "country_stats.csv"
+    ]
+  ]
+}
